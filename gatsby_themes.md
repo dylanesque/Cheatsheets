@@ -1,0 +1,1 @@
+-Component shadowing in themes is when you override a default component in the theme with one that you created
