@@ -58,6 +58,8 @@ For example: 12px, 14px, 16px, 18px, 20px, 24px, 30px, 36px, 48px, 60px, 72px
 
 + #### Initial Planning Step Favor sans-serif for UI, and favor typefaces with at least five weights
 
++ Some good resources for fonts are fontpair.co and type-scale.com
+
 + Avoid condensed typefaces with short x-heights
 
 + To keep paragraph widths manageable, set a width of 20-35em.
