@@ -1,4 +1,6 @@
--When using CRA, use the `--typescript` flag after the project name to use TypeScript in the project.
+-When using CRA, use the `--typescript` flag after the project name to use TypeScript in the project, or for newer versions: `--template typescript`
+
+-Use the `.tsx` file extension when JSX is involved, and `.ts` when it isn't.
 
 -Typed props are one of the biggest major difference between TS React and regular React.
 

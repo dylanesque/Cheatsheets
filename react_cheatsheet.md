@@ -85,7 +85,7 @@ function useLocalStorageState(
     if (valueInLocalStorage) {
       return deserialize(valueInLocalStorage)
     }
-    // The below logic accomodates a default value that is a function
+    // The below logic accommodates a default value that is a function
     return typeof defaultValue === 'function' ? defaultValue() : defaultValue
   })
 
