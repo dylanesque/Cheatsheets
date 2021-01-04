@@ -13,6 +13,10 @@
 
 - Strings: str
 
+- Dictionaries are like objects in JS or hash tables in other programming languages
+
+- Lists are arrays
+
 -"Don't read the dictionary"
 
 - Variables in Python are snake-case
@@ -21,5 +25,7 @@
 
 - Double-underscores indicate a var that is not to be mutated
 
+- Triple-quotes allow multiline strings
 
+- Types are converted by wrapping the value in the name of the type you need it converted to
 
