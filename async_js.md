@@ -11,3 +11,5 @@ passing up the chain by calling `next()` with the error as an argument.
 # Promises
 
 - A promise is a placeholder for a future value, like the [Early Bird Certificate Program](http://theswca.com/images-toys/figuretoys/ebkit.html) for the first Star Wars figures.
+
+- When using Node, keep an eye out for modules that have a `promisify` method, like the `util` module.

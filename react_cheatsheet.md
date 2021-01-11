@@ -294,6 +294,10 @@ fallback component from rendering so you can utilize other UI changes or behavio
 
 -SuspenseList coordinates the order of suspended components
 
+## Render-As-You-Fetch without Suspense
+
+- Fetch resources as early as humanly possible
+
 
 
 

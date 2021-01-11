@@ -7,21 +7,32 @@
 
 # Fundamental Python Data Types and Variables
 
-- Wrapping an evaluation in `type()` will tell you what sort fo data type is
+- Wrapping an evaluation in `type()` will tell you what sort of data type is
 
 - Numbers: int, float, bool
 
 - Strings: str
+- 
+- None is comparable to null in other languages
 
 - Dictionaries are like objects in JS or hash tables in other programming languages
 
+- Dictionary keys are immutable
+
 - Lists are arrays
+
+- A tuple is an immutable list; They are slightly more performant, so it's a good idea to use them in 
+  cases of arrays that don't need to be mutated.
+
+- A set is an 'unordered collection of unique objects', that is, no single value can be duplicated in a set
+
+
 
 -"Don't read the dictionary"
 
 - Variables in Python are snake-case
 
-- Constants in Python are falgged by the use of upper-case caps
+- Constants in Python are flagged by the use of upper-case caps
 
 - Double-underscores indicate a var that is not to be mutated
 
