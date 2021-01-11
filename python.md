@@ -40,3 +40,9 @@
 
 - Types are converted by wrapping the value in the name of the type you need it converted to
 
+# General notes
+
+- When indentation is required, like in conditional statements, 2 spaces is the norm
+
+
+
