@@ -12,12 +12,14 @@
 - Numbers: int, float, bool
 
 - Strings: str
-- 
+  
 - None is comparable to null in other languages
 
 - Dictionaries are like objects in JS or hash tables in other programming languages
 
 - Dictionary keys are immutable
+
+- When iterating over dictionaries, knowing about items, keys, and values are important
 
 - Lists are arrays
 
@@ -43,6 +45,19 @@
 # General notes
 
 - When indentation is required, like in conditional statements, 2 spaces is the norm
+
+# Functions 
+
+- the `*args` and `**kwargs` arguments allow you to respectively input multiple arguments and keyword arguments
+
+- Allowed order is params, *args, default parameters, **kwargs
+
+# Scope
+
+- Scope order is: local, parent's local, Global, built-in python functions
+
+- When using global variables inside block scope, you need to flag them with the `global` keyword, OR pass them into functions, etc, via arguments
+
 
 
 
