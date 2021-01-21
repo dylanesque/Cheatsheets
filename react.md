@@ -8,15 +8,21 @@
 
 - JSX is syntactic sugar on top of the basic React API that resembles HTML or XML. What it is is basically named custom components, with optional "props" which work much like HTML attributes. It's also worth noting that standard HTML attributes work in JSX, though they may sometimes need some syntactic adjustment, as in the famous case of "class" needing to be labelled as "className" in React. To expand on this, a react component is at it's most basic level a JS function that returns some markup or other renderable elements. 
 
-- `propTypes` provide runtime validation for React props. While you could use them, it may be better to use TypeScript instead, as it covers a lot more bases in terms of static analysis, and catches them earlier to boot.
+- `propTypes` provide runtime validation for React props. While you could use this, it may be better to use TypeScript instead, as it covers a lot more bases in terms of static analysis, and catches them earlier to boot.
 
 - Styling in React happens in one of two basic ways: a) Writing styles inline with the `style` prop, and b) Standard CSS applied with the `className` prop.
 
-- Forms aren't too different in React than in other JS paradigms, this module discusses controlled components, and the possibility of using ref instead of getting the event.target.value.
+- Forms aren't too different in React than in other JS paradigms, this module discusses controlled components, and the possibility of using ref instead of getting the `event.target.value` (try not to do this)
 
-- This module discusses arrays, commonly rendered in React by mapping over an array, and the importance of keys
+- This module discusses arrays, commonly rendered in React by mapping over an array, and the importance of keys to uniquely identify each array entity.
 
 # Epic React: React Hooks
+
+- In general, Hooks are how modern React stores and modifies state.
+
+## Hooks Flow
+
+## useState
 
 -`React.useState` is the hook you'll probably use the most, for setting and maintaining basic state. It's commonly written in the form:
 `const [yeet, setYeet] = React.useState('nothing');`
@@ -24,6 +30,8 @@
 ...and is updated by passing the requisite argument to the `setWhatever` function:
 
 `setYeet('the Kardashians');`
+
+- Updating via this set function versus variable assignment is important, since the set function triggers a re-render.
 
 -`this.setState()` is an asynchronous method. What this means is that if duplicate calls are made in a function, only the last one will be called. Furthermore, updated data from a setState call might not be available until the next render.
 
@@ -36,17 +44,53 @@
 -One useful pattern surrounding lazy initialization is to check for an existing value before loading an initial value, like so:
 `() => window.localStorage.getItem('name') || initialName`
 
+- When you have state that depends on other pieces of state, make sure you're dealing with that by deriving state instead of syncing it, as discussed in [this article](https://kentcdodds.com/blog/dont-sync-state-derive-it)
+
 ## Lifting State
 
 -When it comes to the question of 'where does state live?', the way to go is to keep it as close to where it's being used as possible, which is in 
 the closest common parent when children share state.
 
+## useRef
+
+- The useRef hook is how React can get a reference to a particular DOM node. We want to avoid doing this whenever possible since it's imperative as
+  opposed to declarative and not really the "React Way", but it is sometimes necessary.
+
+## useEffect
+
 `React.useEffect(() => { something}, []);`
 
 -useEffect is the hook used for impure actions, typically being used where lifecycle methods would have been called
-in older versions of react. The empty array shown in the example is an optional second argument. If it's called with an empty array, 
-it will only run on mount and unmount. More frequently, it's filled with dependencies such as state to tell useEffect whether or not to 
-re-render based on the dependencies included in the array having been changed.
+in older versions of React. The empty array shown in the example is an optional second argument. If it's called with an empty array, it will only run on mount and unmount. More frequently, it's filled with dependencies such as state to tell useEffect whether or not to re-render based on the dependencies included in the array having been changed.
+
+- Think of side-effects or impure actions in React as not just potentially mutable operations, but data that 
+  comes from or goes to sources outside the React application.
+
+- It accepts a callback function that will run after the DOM is updated
+
+- There are some gotchas surrounding async/await and useEffect, see this [Stack Overflow thread](https://stackoverflow.com/questions/53332321/react-hook-warnings-for-async-function-in-useeffect-useeffect-function-must-ret). The short version is that useEffect isn't supposed to return anything other than the callback function, and async functions automatically returns a promise. Kent suggests something like this:
+
+```javascript
+React.useEffect(() => {
+  async function effect() {
+    const result = await doSomeAsyncThing()
+    // do something with the result
+  }
+  effect()
+})
+```
+
+..or better yet:
+
+```javascript
+React.useEffect(() => {
+  doSomeAsyncThing().then(result => {
+    // do something with the result
+  })
+})
+```
+
+
 
 -A close cousin to useEffect is `useLayoutEffect`: while they almost identical, useEffect will be what you need most of the time. According
 to Kent C. Dodds: 
@@ -72,7 +116,7 @@ to Kent C. Dodds:
 3) See comments on line #86
 4) There is logic that accounts for a key that has changed
 
-```
+```javascript
 function useLocalStorageState(
   key,
   defaultValue = '',

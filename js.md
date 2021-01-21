@@ -23,11 +23,11 @@ behavior seen in techniques like higherorder functions, that include:
 
 -The most esoteric of JavaScript concepts?
 
--Enables powerful pro-level functions like 'once' or 'memoizee'
+-Enables powerful pro-level functions like 'once' or 'memoize'
 
 -Many JS patterns (such as the module pattern) utilize closures
 
--It enables you to build iterators, hancle partial application, and maintain state in an async world.
+-It enables you to build iterators, handle partial application, and maintain state in an async world.
 
 -When functions are declared, they get a hidden property that refers to the lexical scope of where they were declared.
 
@@ -46,7 +46,7 @@ JavaScript is:
 -Synchronously executed (each line is run in order that the code appears)
 
 -The simplest explanation of the event loop is this: if there is any synchronous code on the call stack waiting to be run, 
-asynchronous code such as a function wrapped in setTimeout will not run until the sync code (including that in the global context) is clear
+asynchronous code such as a function wrapped in setTimeout will not run until the sync code (including that in the global context) is cleared
 
 ES5 Web Browser APIs with callbacks are: 
 
@@ -85,9 +85,6 @@ the microtask queue
 
 -
 
-
-
-
 # The Hard Parts of OOP
 
 # The Hard Parts of Servers & Node.js
@@ -95,6 +92,17 @@ the microtask queue
 # Hard Parts: Functional JS Foundations
 
 # The New Hard Parts
+
+# YDKJSY
+
+## Scope and Closures
+
+## Chapter 1
+
+- When it comes to target (aka LHS) and source (aka RHS), how do we distinguish between them? If a variable has a 
+  value that has been (or is being) assigned to it, it's a `target`. Otherwise, it's a `source`.
+
+
 
 
 

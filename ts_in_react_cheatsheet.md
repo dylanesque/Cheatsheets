@@ -1,3 +1,11 @@
+# General TS
+
+- The `declare` keyword can be used in front of uninitialized variable declarations to prevent an error. This is called ambient declaration.
+
+
+
+# TS in React
+
 -When using CRA, use the `--typescript` flag after the project name to use TypeScript in the project, or for newer versions: `--template typescript`
 
 -Use the `.tsx` file extension when JSX is involved, and `.ts` when it isn't.
