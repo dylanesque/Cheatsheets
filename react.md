@@ -149,12 +149,10 @@ function useLocalStorageState(
 
 # Epic React: Advanced React Hooks
 
--The `useReducer` hook's closest equivalent is the Redux framework: if you have state management needs that are far too complicated for 
-useState to handle, you want to reach for this.
+-The `useReducer` hook's closest equivalent is the Redux framework: if you have state management needs that are far too complicated for useState to handle, you want to reach for this. useReducer contains a lot of the best parts of Redux, but is not entirely a drop-in replacement for it.
 
 -`useCallback` exists to deal with the problem of a function being a dependency in the useEffect dependency array: 
-Functions get re-initialized every render, which makes them brand new every render, so it will get called every render, 
-regardless of whether or not that's the actual intention.
+Functions get re-initialized every render, which makes them brand new every render, so it will get called every render, regardless of whether or not that's the actual intention.
 
 -It's structure is much like that of useEffect: The function in question is passed as an argument to the hook, then list the actual dependencies in the dependency array. If they're unchanged on future renders, REact will give the same function it did last time
 
@@ -165,11 +163,17 @@ the component has been unmounted
 
 -Kent says: 
 
-"Context also has the unique ability to be scoped to a specific section of the React component tree. A common mistake of context (and generally any “application” state) is to make it globally available anywhere in your application when it’s actually only needed to be available in a part of the app (like a single page). Keeping a context value scoped to the area that needs it most has improved performance and maintainability characteristics."
+> Context also has the unique ability to be scoped to a specific section of the React component tree. 
+> A common mistake of context (and generally any “application” state) is to make it globally available 
+> anywhere in your >application when it’s actually only needed to be available in a part of the app 
+> (like a single page). Keeping a >context value scoped to the area that needs it most has improved 
+> performance and maintainability characteristics."
 
 -`useImperativeHandle` is described in the React docs as:
 
-"useImperativeHandle customizes the instance value that is exposed to parent components when using ref. As always, imperative code using refs should be avoided in most cases. useImperativeHandle should be used with forwardRef"
+>useImperativeHandle customizes the instance value that is exposed to parent components when using ref. 
+>As always, imperative code using refs should be avoided in most cases. useImperativeHandle should be 
+>used with forwardRef
 
 -Uses of this hook should be fairly infrequent, and literally documented as to why it's necessary
 
