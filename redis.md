@@ -69,4 +69,23 @@
 
 ## Sorted Sets
 
+- `ZADD`: Add elements to a sorted set
+- `ZRANGE`: Fetch all elements for a particular key
+- `ZRANGEBYSCORE`: Fetch elements in a particular range of scores
+- `ZCARD`: Get the number of elements in the sorted set
+- `ZCOUNT`: Find the number of elements within a certain range of scores
+- `ZREM`: Remove a member from a sorted set
+- `ZRANK`: Find the index of an element in a sorted set
+- `ZREVRANK`: Find the rank from the reverse.
+- `ZSCORE`: Get the rank of an element
+  
+## Hashes
+
+- `HMSET`: Store a hash in Redis
+- `HGETALL`: Get all field-value pairs for a given key.
+- `HGET`: Find the value of a particular field within a key
+- `HEXISTS`: Check to see if a particular field exists in the database or not
+- `HDEL`: Delete a field from a hash
+- `HSETNX`: Checks for a field, but doesn't immediately write the value if the field isn't present.
+
 

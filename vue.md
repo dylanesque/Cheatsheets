@@ -50,6 +50,8 @@ new Vue({
 
 - `methods`: Where we store helper functions or methods
 
+= `computed`: like methods, but it caches values
+
 - `components`: Vue components that are included in the template
 
 - A Vue instance is a Vue component, the main difference being that the instance is mounted.
@@ -77,6 +79,30 @@ Vue.directive('nameofthedirective', {
 ```
 
 - Custom directives must be declared before the Vue instance is initialized
+
+- Conditional rendering is handled via directives, `v-if`, `v-else`, etc.
+
+- While `v-if` removes an element from the DOM, `v-show` merely toggles it's visibility. This directive doesn't work with the template wrapper.
+
+- Iterating is done with the `v-for` directive. Like in Angular, mutiple "structural" directives don't play well together.
+
+## Reactive Paradigm/DOM Updating
+
+- Array methods that trigger DOM updates: push, pop, shift, unshift, splice, reverse, sort
+
+- `Vue.set()` is a method that updates elements, which takes 3 arguments:
+  
+  1) The list to be updated
+  2) The index of them item
+  3) The new value
+
+- Lists require a key, like in React, so as to not lose place
+
+
+
+- the <template> wrapper is used to group elements together that get rendered (or don't) based on the same condition
+
+
 
 # Components
 
