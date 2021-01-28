@@ -182,7 +182,7 @@ the component has been unmounted
 ## The Context Module pattern 
 
 -This pattern is most useful when using useContext and useReducer together. If, in a situation like this, 
-you find yourself making custom functions in the consuming component, or importing helper functions, then it may be a good idea to import those functions and the context provider from a separate module.
+you find yourself making custom functions in the consuming component, or importing helper functions, then it may be a good idea to import those functions and the context provider from a separate module. In short, make sure you're providing everything you need to consume Context **with** that Context.
 
 ## Compound Components 
 

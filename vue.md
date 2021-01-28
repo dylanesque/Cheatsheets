@@ -49,16 +49,26 @@ new Vue({
 - Interpolation can contain JS expressions, but only one per bracket pair
 
 - `methods`: Where we store helper functions or methods
-
-= `computed`: like methods, but it caches values
-
+ 
+- `computed`: like methods, but it caches values
+  
 - `components`: Vue components that are included in the template
 
 - A Vue instance is a Vue component, the main difference being that the instance is mounted.
 
+- Component files end in the `.vue` file extension, and contain <template>, <script>, and <style> tags.
+
+- Data is passed from parent to child using a `props` syntax very similar to React's. 
+  `<ToDo_List v-bind:items='itemList' >`
+
+- Children components communicate with parents via emitted events
+
+
 # Terms
 
 - **Directive:** A directive is a token that given Vue special instructions about a DOM element.
+
+- **Mixins:** A mixin is a JS object used to shared common functionality between similar components.
 
 # Directives
 

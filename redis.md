@@ -89,3 +89,32 @@
 - `HSETNX`: Checks for a field, but doesn't immediately write the value if the field isn't present.
 
 
+# Publisher/Subscriber Model
+
+- A message queue is a a temporary store for messages, that has a publisher and a subscriber
+
+- A publisher can only publish to one channel
+
+- A channel can have multiple subscribers
+
+- A subscriber can subscribe to one or more channels
+
+- `SUBSCRIBE` channel message
+
+- `PUBLISH` channel message
+
+- `UNSUBSCRIBE` channel
+
+- `PSUBSCRIBE` *string, lets you subscribe to all channels with a particular character or string
+
+- `PUNSUBSCRIBE` *string
+
+# Transactions
+
+- Transactions are sequences of commands that are executed atomically and in order.
+
+- `MULTI`: Tells Redis a new transaction is being started
+
+- `EXEC`: Tells the client to send all queued commands to the server.
+
+- `DISCARD`: Ends the transaction without executing the commands
