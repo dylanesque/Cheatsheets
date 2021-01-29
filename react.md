@@ -186,9 +186,19 @@ you find yourself making custom functions in the consuming component, or importi
 
 ## Compound Components 
 
--This pattern can be thought of like ul and li or select and option: A parent and child relation ship that you don't ever see used apart from each other. There are two basic ways to accomplish this:
+-This pattern can be thought of like ul and li or select and option: A parent and child relationship that you don't ever see used apart from each other. So we have something like:
 
-1) Mapping over the children of a parent and cloning the state and props
+```javascript
+function Guitar({ children }) {
+  const [position, setPosition] = React.useState('neck');
+  const toggle = () => setposition(!on)
+}
+```
+
+- A question I have: how to handle state more complicated than a boolean switch? 
+- There are two basic ways to accomplish this:
+
+1) Mapping over the children of a parent and cloning the state and props into new children elements
 2) Using a context provider and sharing state that way
 
 When to use one or the other? 

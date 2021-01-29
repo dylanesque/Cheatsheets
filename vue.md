@@ -96,6 +96,8 @@ Vue.directive('nameofthedirective', {
 
 - Iterating is done with the `v-for` directive. Like in Angular, mutiple "structural" directives don't play well together.
 
+- To deal with conditionally rendered loops, first filter the list using the 'computed' property before passing it down to the template.
+
 ## Reactive Paradigm/DOM Updating
 
 - Array methods that trigger DOM updates: push, pop, shift, unshift, splice, reverse, sort
