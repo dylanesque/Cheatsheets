@@ -21,3 +21,8 @@
 - `db.collection_name.remove(query)`: removes collection
 
 - `db.COLLECTION_NAME.createIndex({ FIELD_NAME: 1})`: creates an index on a field of a collection
+
+# Replica Sets
+
+- Replication is how Mongo spreads it's data out to avoid loss of data from one server
+- 
