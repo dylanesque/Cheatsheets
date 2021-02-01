@@ -12,3 +12,13 @@ nothing to be done after the user buys the software. Think in terms of PS1 games
 - A three-tier application (think MVC) has the UI, application logic, and database in different machines. 
 
 - An N-tier application (aka distributed application) has more than three components involved.
+
+# Web Architecture
+
+## Client-Server Paradigm
+
+- A Client is what we think of as user-facing: a website, mobile application, etc.
+
+- A Thin Client holds only the UI of the application, no business logic of any kind.
+
+- A Thick Client holds some or all of the business logic.
