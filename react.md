@@ -175,7 +175,7 @@ the component has been unmounted
 >As always, imperative code using refs should be avoided in most cases. useImperativeHandle should be 
 >used with forwardRef
 
--Uses of this hook should be fairly infrequent, and literally documented as to why it's necessary
+-Uses of this hook should be fairly infrequent, and always documented as to why it's necessary in that particular case.
 
 # Epic React: Advanced React Patterns
 
@@ -208,12 +208,34 @@ When to use one or the other?
 
 ## Prop Collections and Getters
 
--The 'Prop Collections' pattern is basically what it sounds like: an object of props that go along with 
-a certain type of component
+- The 'Prop Collections' pattern is basically what it sounds like: an object of props in a custom hook that get spread out and used in components.
 
--The 'Prop Getters' pattern an an extension of the above pattern that involves:
+- The limitations of this pattern are that is a default property in a prop collection needs to be overridden, this is hard to do without breaking other functionality.
 
-1) A function that that accepts and returns certain properties, and arbitrary props as arguments
+- The 'Prop Getters' pattern an an extension of the above pattern that involves:
+
+1) A function that that accepts and returns certain properties, and arbitrary props as arguments. For example:
+
+```javascript
+// Helper function that calls arbitrary number of functions:
+function callAll(...fns) {
+  return (...args) => {
+    fns.forEach(fn => {
+      fn && fn(...args)
+    })
+  }
+}
+
+// Prop getter function:
+function getTogglerProps({ props, ...onClick } = {}) {
+    return {
+      'aria-pressed': on, onClick: callAll(onClick, toggle),
+      ...props
+    }
+  }
+
+//
+
    
 ## State Reducer
 

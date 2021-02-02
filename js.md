@@ -37,6 +37,18 @@ behavior seen in techniques like higherorder functions, that include:
 
 -JavaScript is lexically (aka static) scoped
 
+## Errors
+
+- A TypeError indicates an illegal operation with a value.
+
+- A ReferenceError indicates a value that can't be found or doesn't exist.
+
+## Hoisting
+
+- Variables declared with the `var` keyword are hoisted, that is, their declaration is moved to the top of the scope it's declared in
+
+- This happens with functions as well, but NOT function expressions: `var doink = () => console.log('doink');`
+
 ## Asynchronous JavaScript
 
 JavaScript is:
