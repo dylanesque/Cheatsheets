@@ -233,17 +233,17 @@ function getTogglerProps({ props, ...onClick } = {}) {
       ...props
     }
   }
-
-//
-
-   
+```
+ 
 ## State Reducer
 
--The state reducer pattern involves using a reducer to allow users to add props/functionality to a component, rather than trying to code up every possible use case. 
+- The state reducer pattern involves using a reducer to allow users to add props/functionality to a component, rather than trying to code up every possible use case. 
 
--This can be done by providing a default reducer, but accepting a custom reducer as a possible argument
+- This can be done by providing a default reducer, but accepting a custom reducer as a possible argument
 
 ## Control Props
+
+- Control props not only allow users to manage state changes in components, but control when they happen. The most visible example of this pattern are controlled form components.
 
 # Epic React: React Performance
 
