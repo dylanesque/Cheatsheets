@@ -37,6 +37,15 @@ behavior seen in techniques like higherorder functions, that include:
 
 -JavaScript is lexically (aka static) scoped
 
+- Kyle Simpson defines a closure as:
+
+> Closure is observed when a function uses variable(s) from outer scope(s) even while running in a scope where 
+> those variable(s) wouldn't be accessible.
+
+- Closure can improve efficiency by allowing a function instance to remember previously determined information instead of having to compute it each time.
+
+- Closure can improve code readability, bounding scope-exposure by encapsulating variable(s) inside function instances, while still making sure the information in those variables is accessible for future use. The resultant narrower, more specialized function instances are cleaner to interact with, since the preserved information doesn't need to be passed in every invocation.
+
 ## Errors
 
 - A TypeError indicates an illegal operation with a value.

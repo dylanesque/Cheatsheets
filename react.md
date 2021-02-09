@@ -346,7 +346,23 @@ refactors then **neither should your tests.**"
 -Using utilities like the 'screen' portion of react-testing-library can help make your tests short and more resilient 
 to codebase modifications.
 
-## 
+## Integration Testing
+
+Kent tests:
+
+- Rendering the entire application, including providers
+
+- That the loading element is removed
+
+- That the logged-in state is happening
+
+- Rendering a book page
+
+- That certain UI elements are present
+
+- Mocks server using msw
+
+
 # Epic React: React Suspense
 
 ## Simple Data-Fetching
