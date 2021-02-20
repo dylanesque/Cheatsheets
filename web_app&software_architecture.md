@@ -22,3 +22,13 @@ nothing to be done after the user buys the software. Think in terms of PS1 games
 - A Thin Client holds only the UI of the application, no business logic of any kind.
 
 - A Thick Client holds some or all of the business logic.
+
+# High Availability
+
+- "High availability also known as HA is the ability of the system to stay online despite having failures at the infrastructural level in real-time"
+
+- "Fault tolerance is the ability of the system to stay up despite taking hits."
+
+- "Redundancy is duplicating the components or instances & keeping them on standby to take over in case the active instances go down. It’s the fail-safe, backup mechanism."
+
+- 

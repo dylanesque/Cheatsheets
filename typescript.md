@@ -1,5 +1,9 @@
 # General TS
 
+- TypeScript is a structural type system: it cares about the shape of an object, ie, the names of properties and types of values.
+
+- "Wide" and "Narrow" are used to describe the level of specificity.
+
 - The `declare` keyword can be used in front of uninitialized variable declarations to prevent an error. This is called **ambient declaration**.
 
 - TypeScript uses structural typing, which means that variables with different types can be assigned to one another if the types are compatible. Here are some rules we can use to determine whether types are compatible:
