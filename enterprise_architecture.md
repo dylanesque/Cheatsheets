@@ -21,3 +21,14 @@
 
 - Abstractions should reduce complexity, and increase portability.
 
+# OOP
+
+- Think of objects as nouns
+
+- Getting the domain model correct, esp in terms of accuracy, is the more important thing for a codebase.
+
+- Modeling the domain as objects makes it easier to manage state later on
+
+- Think of methods as verbs
+
+

@@ -12,6 +12,14 @@
 2) An object, a, can be assigned to another object, b, if a has at least the same members as b
 3) A function, a, can be assigned to another function, b, if each parameter in a has a corresponding parameter in b with a compatible type
 
+# General Guidelines
+
+- One important component of TypeScript is being aware of the individual config settings for the project you're working on, and working within that framework, such as using `noImplicitAny` or `strictNullChecks`, or enabling `strict`.
+
+- TS code generation isn't the same thing as it's type system, meaning that code with type errors can compile unless explictly blocked from doing so by `noEmitOnError` or a similar tactic.
+
+- Types aren't available at runtime. If you need a type at runtime, you need some way to access it like property checking or a tagged union. 
+
 # Individual Types
 
 - The `any` type should be avoided whenever possible, since it offers no type protection whatsoever. Strongly consider having `noImplicitAny` set
@@ -40,7 +48,11 @@ to true in your config.
 ## Scope
 
 - It's recommended that you wrap `case`s in `switch` statements in curly brackets to lock down scope
-- 
+
+# Objects
+
+- You can create an object literal in TS using curly braces, like in JS. This can be 
+  limiting since you need to define every member of it at initialization time.
 
 
 
