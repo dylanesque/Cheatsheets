@@ -20,6 +20,8 @@
 
 - Types aren't available at runtime. If you need a type at runtime, you need some way to access it like property checking or a tagged union. 
 
+- In TS, types aren't "sealed" or written in stone. Values that are assignable to an interface might have properties beyond those initially stated in the type declarations. This is known as structural typing.
+
 # Individual Types
 
 - The `any` type should be avoided whenever possible, since it offers no type protection whatsoever. Strongly consider having `noImplicitAny` set
