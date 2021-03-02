@@ -22,6 +22,14 @@
 
 - In TS, types aren't "sealed" or written in stone. Values that are assignable to an interface might have properties beyond those initially stated in the type declarations. This is known as structural typing.
 
+- TS types can be thought of as sets of values. (Revisit this, item #7 in Effective TypeScript)
+
+- In any given TS expressions, it's important to know whether or not you're in type space or value space, because keywords and operators will behave differently depending on which of the two it is.
+
+- Prefer declaring the type rather than relying on type assertions, unless you have a very good reason for needing the latter.
+
+
+
 # Individual Types
 
 - The `any` type should be avoided whenever possible, since it offers no type protection whatsoever. Strongly consider having `noImplicitAny` set
@@ -40,6 +48,8 @@ to true in your config.
 
 `type Direction = "north" | "south" | "east" | "west";`
 `let myDirection:Direction = "north";`
+
+- Values in an intersection type contain the union of properties of each of it's individual parts
 
 ## Inference
 

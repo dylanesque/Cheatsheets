@@ -6,7 +6,7 @@
 
 + Reads of new files are available immediately; reads of updates or deletes may take some time.
 
-+ Guarantes 99.99999999999% durability for S3 information
++ Guarantees 99.99999999999% durability for S3 information
 
 + Some features that S3 offers are: Tiered Storage, Lifecycle Management, Versioning, MFA Deletion, Bucket Policies and
   Access Control Lists to secure data.
@@ -39,8 +39,16 @@
 + Transfer Acceleration:
   1) Uploads to an edge location instead of a specific bucket.
 
+## Creating an S3 Bucket
 
-## Cloudfront
+1) Navigate to S3 in the AWS dashboard
+2) Select "Create Bucket" in the "Buckets" page in the S3 dashboard
+3) Select a unique name for the bucket
+4) Adjust default privacy settings (if necessary)
+5) Upload necessary files into bucket
+
+
+# Cloudfront
 
 + Cloudfront is a CDN
 + An Edge Location is the location where content will be cached.
@@ -52,7 +60,7 @@
 + Objects care cached for the life of the TTL (Time To Live).
 + You CAN invalidate cached objects, but a charge comes with this.
 
-## Snowball
+# Snowball
 
 + Snowball is a petabyte-scale data transport solution.
 
