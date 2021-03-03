@@ -1,3 +1,17 @@
+# Functions
+
+- When there is a standaloen function ala:
+
+```javascript
+function sodaMachine() {
+    console.log("here's your soda");
+}
+```
+- That is a function statement. 
+
+- Functions assigned to variables are function expressions.
+
+
 # The Hard Parts
 
 ## Basics

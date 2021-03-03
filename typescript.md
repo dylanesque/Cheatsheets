@@ -28,7 +28,11 @@
 
 - Prefer declaring the type rather than relying on type assertions, unless you have a very good reason for needing the latter.
 
+- Excess type checking is something else to be aware of (and another reason to avoid assertions).
 
+- Excess type checking happens when you assign an object literal to a variable or pass it as an arg to a function.
+
+- Strongly consider applying type annotations to entire function expressions, rather than just parameters and return type.
 
 # Individual Types
 
@@ -65,6 +69,10 @@ to true in your config.
 
 - You can create an object literal in TS using curly braces, like in JS. This can be 
   limiting since you need to define every member of it at initialization time.
+
+  # Types vs Interfaces
+
+  - When deciding whether to use one or the other in a project, consider any existing styles involving them in the project, and whether or not you should be using augmentation.
 
 
 
