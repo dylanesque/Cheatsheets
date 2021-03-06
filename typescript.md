@@ -33,6 +33,13 @@
 - Excess type checking happens when you assign an object literal to a variable or pass it as an arg to a function.
 
 - Strongly consider applying type annotations to entire function expressions, rather than just parameters and return type.
+  
+- Use index signatures when you can't know the exact properties of an object at runtime.
+
+- If function parameters don't get modified by the function, strongly consider making them `readonly` to prevent mutation and have clearer code.
+
+- Understand the difference between const and readonly, and keep in mind that readonly is shallow.
+
 
 # Individual Types
 
@@ -55,15 +62,25 @@ to true in your config.
 
 - Values in an intersection type contain the union of properties of each of it's individual parts
 
-## Inference
+## Inference & Annotations
 
 - TS infers the type of a string const as the value of that const, NOT a string. This applies to any primitive type in TS.
 
 - If a variable is declared without being initialized, TS will infer that it is the 'any' type.
 
+- Avoid type annotations when TS can infer the correct type
+
+- Type Annotations are good for function or method signatures, but not local vars within their body.
+
+- Strongly consider annotations on object literals and function return types, even when they can be inferred.
+
 ## Scope
 
 - It's recommended that you wrap `case`s in `switch` statements in curly brackets to lock down scope
+
+# Mapped Types
+
+
 
 # Objects
 

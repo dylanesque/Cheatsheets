@@ -1,58 +1,72 @@
 # Observables
--An Observable is something that emits events over time
- -AN observable needs to be not only created, but subscribed to.
- -You can .subscribe(), and also .unsubscribe() from an observable.
- -Observable are cold by default: What this means is that you need to manually subscribe to them to get data.
+- An Observable is something that emits events over time
+- An observable needs to be not only created, but subscribed to.
+- You can `.subscribe()`, and also `.unsubscribe()` from an observable.
+- Observable are cold by default: What this means is that you need to manually subscribe to them to get data.
 
 # Operators
--An Operator acts upon the events that an observable emits, transforming or checking the data in some way
+
+- An Operator acts upon the events that an observable emits, transforming or checking the data in some way
 
 ## Creation Operators
 
--Creation operators streamline the creation of observables.
+- Creation operators streamline the creation of observables.
 
--.fromEvent(element, 'event') creates an observable from a DOM event
+- `.fromEvent(element, 'event')` creates an observable from a DOM event
 
--of() is used to make observables out of static values
+- `of()` is used to make observables out of static values
+ 
+- `range()` takes a range of numbers and and fills in the blanks (range(1, 10))
+ 
+- The `from()` operator creates an observable from nearly anything
 
--range() takes a range of numbers and and fills in the blanks (range(1, 10))
+- The `interval()` operator creates an observable that's timer-based
+  
+- The `timer()` operator allows for more fine-grained control over interval timing
 
--The from() operator creates an observable from nearly anything
-
--The interval operator creates an observable that's timer-based
-  -The timer operator allows for more fine-grained control over interval timing
+- The `defer()` operator takes a function as an argument and executes it when an Observer subscribes to it.
 
 ## Pipeable Operators
 
-.pipe() needs to be added BEFORE a subscribe call
+- Pipeable operators transform the data that passes through them
 
--Pipeable operators transform the data that passes through them
+- `.pipe()` needs to be added BEFORE a subscribe call
 
--map applies a given function to the data that passes through the pipe, much like the .map() Array method in JS
+- `map` applies a given function to the data that passes through the pipe, much like the `.map()` Array method in JS
 
--pluck is like map, "but meant only for picking one of the nested properties of every emitted object."
+- `pluck()` is like map, "but meant only for picking one of the nested properties of every emitted object."
 
--filter also works much like the Array.prototype.filter() method
+- `filter` also works much like the Array.prototype.filter() method
 
--And again, reduce() is like it's Array method counterpart
+- And again, `reduce()` is like it's Array method counterpart
 
--scan() is a lot like reduce, except that it returns the value at each step of the way, instead of only once at the end.
+- `scan()` is a lot like reduce, except that it returns the value at each step of the way, instead of only once at the end.
 
--shareReplay() allows you to reduce the number of HTTP requests/API calls from a single source
+- `shareReplay()` allows you to reduce the number of HTTP requests/API calls from a single source
 
 ## Combination Operators
 
--forkJoin() takes a number of observables, and emits the last emitted value from each when they are complete
+- `forkJoin()` takes a number of observables, and emits the last emitted value from each when they are complete.
+
+- `combineLatest()` allows you to subscribe to a combination of observables. Will not emit until each observable emits at least one value apiece.
+
+- `zip()` waits until all observables in question emits, then returns those values to the observer.
 
 ## Filtering Operators
 
--take() allows us to specify a number of values to return
+- `first()` only allows the first emitted value to go through. If this observable completes before a value is emitted, it throws an error.
 
--takeWhile() allows us to receive data until a certain condition is met
+- `last()` does the opposite of `first`
 
--takeUntil() takes another observable as an argument, and emits values until the other observable returns a value
+- `take(`) allows us to specify a number of values to return
 
--distinctUntilChanged() ignores emitting values until they change from the last emitted value
+- `skip()` allows us to bypass the first x values returned by an observable, also `skipUntil()`
+
+- `takeWhile()` allows us to receive data until a certain condition is met
+
+- `takeUntil()` takes another observable as an argument, and emits values until the other observable returns a value
+
+- `distinctUntilChanged()` ignores emitting values until they change from the last emitted value
 
 ## Multicasting Operators
 
@@ -60,21 +74,29 @@
 
 # Rate Limiting Operators
 
--debounceTime() "Discards emitted values that take less than the specified time between output"
+- `debounceTime()` "Discards emitted values that take less than the specified time between output"
 
--throttleTime() ignores values that happen during certain specified time windows
+- `throttleTime()` ignores values that happen during certain specified time windows
 
--sample()  "Sample from source when provided observable emits"
+- `sample()` "Sample from source when provided observable emits"
 
 # Transformation Operators
 
--concatMap vs mergeMap?
+- concatMap vs mergeMap?
 
--mergeMap() "Map to observable, emit values."
+- `mergeMap(`) "Map to observable, emit values."
 
--switchMap() switches to a new observable when the value changes
+- `switchMap()` switches to a new observable when the value changes
 
--concatMap() queues all observables until released, "a single file line of operators". Is helpful when order of execution matters
+- `concatMap()` queues all observables until released, "a single file line of operators". Is helpful when order of execution matters. Similar to switchMap, except that it won't subscribe to the next observable until the current one completes.
+
+- `buffer()` buffers emitted values until the observable provided as an arg emits.
+
+- `bufferCount()` buffers items up to the specified threshold, and then emits
+
+- `bufferToggle()` captures events that happen between a specified threshold
+
+
 
 
 

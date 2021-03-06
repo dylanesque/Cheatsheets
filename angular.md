@@ -1,3 +1,6 @@
+
+# Components
+
 - Components should do two things: 
   1) Consume only the data needed to satisfy and render it's template
   2) Capture events from the user and push that further up the stream to the "logic layer"
@@ -34,10 +37,6 @@ Generally speaking:
 
 - ...and everything inside that container component will be a presentational component.
 
-Components should do two things: 
-  1) Consume only the data needed to satisfy and render it's template
-  2) Capture events from the user and push that further up the stream to the "logic layer"
-
 - Container components should satisfy inputs using the async pipe
 
 - Components should be oblivious to:
@@ -48,6 +47,10 @@ Components should do two things:
 - Facades are for delegation only
 
 - Server communication and state management should be decoupled
+
+# Routing
+
+- When reading route parameters, use snapshot for simple cases, like when you want to read those params only one. If it's much much complicated than that or is expected to change, use Observables.
 
 
 
