@@ -74,6 +74,8 @@ to true in your config.
 
 - Strongly consider annotations on object literals and function return types, even when they can be inferred.
 
+- Before you reach for a union type to handle different types a values for a variable, ask yourself if it should be two different variables instead. 
+
 ## Scope
 
 - It's recommended that you wrap `case`s in `switch` statements in curly brackets to lock down scope
@@ -86,6 +88,8 @@ to true in your config.
 
 - You can create an object literal in TS using curly braces, like in JS. This can be 
   limiting since you need to define every member of it at initialization time.
+
+- Endeavor to build objects all at once to avoid difficulty. 
 
   # Types vs Interfaces
 
