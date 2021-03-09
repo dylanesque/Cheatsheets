@@ -40,6 +40,22 @@
 
 - Understand the difference between const and readonly, and keep in mind that readonly is shallow.
 
+- If you create an alias for a variable, use it consistently.
+
+- TODO: Study how function calls can invalidate type refinements on properties.
+
+- Make sure your types aren't representing invalid state.
+
+- Tagged (or discriminated) unions are a good way to represent complicated state, like that see in API calls.
+
+- Postel's Law (aka the robustness principle) states that you be liberal in what you accept from others, but are conservative in what you do.
+
+- Avoid repeating type information in comments and var names. 
+
+- Consider including units in var names if those are clear from the type (as in the case of temperature or time)
+
+- Prefer unions of interfaces to interfaces with multiple properties that are union types.
+
 
 # Individual Types
 

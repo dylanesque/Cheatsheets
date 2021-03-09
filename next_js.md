@@ -62,6 +62,10 @@ file indicates the root of that part of the path
 
 - Use the router API for programmatic routing
 
+# Styling
+
+
+
 # Theming
 
 - Scott Moss's recommendation is to use [Theme UI](https://hendrixer.github.io/nextjs-course/themeui)
