@@ -56,12 +56,35 @@
 
 - Prefer unions of interfaces to interfaces with multiple properties that are union types.
 
+- Incorrect types are often worse than no types.
+
+- Represent gaps in model knowledge using `any` or `unknown`.
+
+- Strongly consider generating types for API calls and data formats for extra safety. 
+
+- Try to generate code from specs whenever possible.
+
+- If you need nominal typing in TS, consider 'branding' (like cattle branding) values to distinguish them.
+
 
 # Individual Types
 
-- The `any` type should be avoided whenever possible, since it offers no type protection whatsoever. Strongly consider having `noImplicitAny` set
-to true in your config.
+- Before typing a variable as a mere string, can you make it more specific? for example:
+`type GuitarBridge = 'Floyd Rose | Tune-O-Matic'`
+
+## The any type
+
+- The `any` type should be avoided whenever possible, since it offers no type protection whatsoever. Strongly consider having `noImplicitAny` set to true in your config.
+  
 - There is a `noExplicitAny` flag for your compiler if you want to banish this from your codebase entirely.
+
+- If you MUST use any, scope it as narrowly as possible so it doesn't leak into other portions of your codebase.
+
+- Also, use the most precise version of `any` you can, like `any[]` as opposed to `any`.
+
+- Never, ever, return `any` from a function.
+
+- Consider `@ts-ignore` instead of `any` if you need to silence an error that one line throws.
 
 - The union of `undefined` and any other type make that declaration the `optional` type.
 
