@@ -1,6 +1,6 @@
 # Functions
 
-- When there is a standaloen function ala:
+- When there is a standalone function ala:
 
 ```javascript
 function sodaMachine() {

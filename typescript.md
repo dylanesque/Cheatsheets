@@ -66,6 +66,8 @@
 
 - If you need nominal typing in TS, consider 'branding' (like cattle branding) values to distinguish them.
 
+- Sometimes, there's no getting around unsafe type assertions. You can minimize the damage these could potentially cause by hiding them in a function with a correct signature.
+
 
 # Individual Types
 
@@ -78,7 +80,7 @@
   
 - There is a `noExplicitAny` flag for your compiler if you want to banish this from your codebase entirely.
 
-- If you MUST use any, scope it as narrowly as possible so it doesn't leak into other portions of your codebase.
+- If you MUST use `any`, scope it as narrowly as possible so it doesn't leak into other portions of your codebase.
 
 - Also, use the most precise version of `any` you can, like `any[]` as opposed to `any`.
 
@@ -86,11 +88,21 @@
 
 - Consider `@ts-ignore` instead of `any` if you need to silence an error that one line throws.
 
+- implict `any` and `any[]` types are allowed to evolve, or acquire more a more specific type as changes occur. Know what this looks like, and avoid it if you can with explicit type annotation.
+
+- Prefer `unknown` to `any` when you don't know a type's value.
+
+- Unintended `any` can slip into a codebase via explicit `any`s, or type declarations from third-party libraries. To guard against this, have a method for inspecting the type coverage in your codebase.
+
+## Misc Types
+
+TODO: Understand the difference between `{}`, `object`, and `unknown`
+
 - The union of `undefined` and any other type make that declaration the `optional` type.
 
 1) uninitialized variable: should be undefined
 2) a variable clearly representing the absence of something: should be null
-3) a variable representing a value: should neither be undefined, nor null
+3) a variable representing a value: should neither be undefined nor null
 
 - Booleans can be inferred as false from the values `undefined`, `null`, `-0`, `0`, and `NaN`.
 

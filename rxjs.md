@@ -64,7 +64,9 @@
 
 - `takeWhile()` allows us to receive data until a certain condition is met
 
-- `takeUntil()` takes another observable as an argument, and emits values until the other observable returns a value
+- `takeUntil()` takes another observable as an argument, and emits values until the other observable returns a value.
+
+  - `takeUntil` can be used to automate unsubscription from long-running streams, as seen in [this example](https://rxjs-emjeza.stackblitz.io).
 
 - `distinctUntilChanged()` ignores emitting values until they change from the last emitted value
 
@@ -96,17 +98,13 @@
 
 - `bufferToggle()` captures events that happen between a specified threshold
 
-
-
-
-
 # Observers
   
--An Observer (obviously) is what receives an observable, and has three callback functions: next (think Express.js next()), error, and complete. You can supply any, or none, of the callbacks.
+- An Observer (obviously) is what receives an observable, and has three callback functions: next (think Express.js next()), error, and complete. You can supply any, or none, of the callbacks.
 
--When we pass an argument to next, we're basically say to put it in the pipeline
+- When we pass an argument to `next()`, we're basically say to put it in the pipeline
 
--An error will complete the stream it occurs in
+- An error will complete the stream it occurs in
 
 -Best practice is to use the catchError operator to catch them
 
@@ -149,6 +147,14 @@ also quickly run into issues with a later subscriber not seeing earlier events!
 -asyncSchedular vs delay?
 
 -asapScheduler schedules work on the microtask queue, like Promise.resolve or queueMicrotask
+
+# Tips and Tricks
+
+- Use [`finalize()`](https://www.learnrxjs.io/learn-rxjs/operators/utility/finalize) to perform side-effects upon completion (or error).
+
+- Whenever possible, extract commonly used/reused logic (such as retrying a failed request) into a function for improved resuability & code quality.
+
+- Consider using combination operators to merge outside state into observable streams.
 
 
 
