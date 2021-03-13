@@ -25,6 +25,32 @@
 # Centering
 
 - The auto margin technique for centering elements is still quite useful when you have a single element that you need centered, and making the parent element a Flexbox or Grid container would be overkill.
+  
+# Flow Layout
+
+## Inline Elements
+
+- Inline elements don't have a width or height.
+
+- Inline elements have extra "magic space" because the browser regards them as typography. To fix this quirk with images, either set their display as `block` or set the `line-height` on the wrapping div to `0`
+
+## Block-level Elements
+
+- the [`fit-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content) rule lets block level elements fill available space.
+
+- By default, block-level elements have dynamic sizing.
+
+## Inline Block
+
+- Be aware of, but don't worry too much about [space sensitivity](https://css-tricks.com/fighting-the-space-between-inline-block-elements)
+
+- Disadvantages: Inline block doesn't line-wrap, 
+
+## Replaced Elements
+
+- Replaced elements (like img, video, or canvas tags) embed a foreign object. They mostly behave as inline elements, but they can affect block layout in some ways.
+
+- Buttons behave almost, but not exactly, as replaced elements.
 
 # Gotchas
 
