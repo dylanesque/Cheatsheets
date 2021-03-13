@@ -12,6 +12,10 @@
 2) An object, a, can be assigned to another object, b, if a has at least the same members as b
 3) A function, a, can be assigned to another function, b, if each parameter in a has a corresponding parameter in b with a compatible type
 
+# Debugging
+
+- Use source maps for more effective TS debugging at runtime.
+
 # General Guidelines
 
 - One important component of TypeScript is being aware of the individual config settings for the project you're working on, and working within that framework, such as using `noImplicitAny` or `strictNullChecks`, or enabling `strict`.
@@ -67,6 +71,14 @@
 - If you need nominal typing in TS, consider 'branding' (like cattle branding) values to distinguish them.
 
 - Sometimes, there's no getting around unsafe type assertions. You can minimize the damage these could potentially cause by hiding them in a function with a correct signature.
+
+- When installing TS or @types, make sure they're saved as `devDependencies` 
+
+- Avoid using enums, parameter properties, triple-slash imports, and decorators to delineate the difference between JS and TS in your codebase as much as you can.
+
+- Be deliberate about iterating over objects in TS, use `Object.entries` or `let k: keyof T` & a `for-in` loop for this.
+
+- Be aware of the type hierarchy that goes with the DOM when working with browsers and TS; At the least, understand the differences between Node, Element, HTMLElement, and EventTarget, as well as the difference between Event and MouseEvent.
 
 
 # Individual Types
@@ -127,7 +139,9 @@ TODO: Understand the difference between `{}`, `object`, and `unknown`
 
 - Before you reach for a union type to handle different types a values for a variable, ask yourself if it should be two different variables instead. 
 
-## Scope
+- Favor conditional types over overloaded type declarations.
+
+# Scope
 
 - It's recommended that you wrap `case`s in `switch` statements in curly brackets to lock down scope
 
@@ -146,7 +160,9 @@ TODO: Understand the difference between `{}`, `object`, and `unknown`
 
   - When deciding whether to use one or the other in a project, consider any existing styles involving them in the project, and whether or not you should be using augmentation.
 
+# Security
 
+- Do NOT rely on `private` to hide information.
 
 # TS in React
 

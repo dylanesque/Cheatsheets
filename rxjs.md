@@ -72,7 +72,7 @@
 
 ## Multicasting Operators
 
--shareReplay() or share() is a handy way to keep the results of an HTTP request or API call in memory and use it in multiple places without making multiple calls
+- shareReplay() or share() is a handy way to keep the results of an HTTP request or API call in memory and use it in multiple places without making multiple calls
 
 # Rate Limiting Operators
 
