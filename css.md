@@ -36,8 +36,6 @@
 
 ## Block-level Elements
 
-- the [`fit-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content) rule lets block level elements fill available space.
-
 - By default, block-level elements have dynamic sizing.
 
 ## Inline Block
@@ -51,6 +49,31 @@
 - Replaced elements (like img, video, or canvas tags) embed a foreign object. They mostly behave as inline elements, but they can affect block layout in some ways.
 
 - Buttons behave almost, but not exactly, as replaced elements.
+
+## Height
+
+To normalize application height when trying to fill the viewport:
+
+1) Put `height: 100%` on every element before your main one.
+2) Put `min-height: 100%` on that wrapper, and don't try using percentage-based heights there.
+   
+-`vh` units are unformtunatly not a viable solution here, since they're based on the total **possible** height after taking scrolling into consideration on mobile devices.
+
+## Width
+
+- Width can be expressed either as a keyword that dictates it's behavior (like `auto`), or as a measurement like `percentage` or `px`.
+
+- `min-content` lets us shrink the element as much as it's children will allow. 
+
+- `max-content` is the opposite of the above, with no line-breaks whatsoever. This is perfect for situations like only wanting background-color immediately around the child text.
+
+- the [`fit-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content) rule lets block level elements fill available space. It's a happy medium between the above two rules.
+
+
+
+
+
+
 
 # Gotchas
 

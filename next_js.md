@@ -47,9 +47,10 @@ file indicates the root of that part of the path
 
 - Parameterized routes can be created with brackets: `[id].jsx`
 
-- The router can be accessed with the `useRouter` hook, which gives access to the router object
+- The router can be accessed with the `useRouter` hook, which gives access to the router object. This is a vital technique for both parameterized and catch-all routes.
 
 - Catch-all routes apply to everything that fits X template: Good for when you need similar layouts for dynamic information. Think of them like a reusable component, but on a page level. See https://nextjs.org/docs/routing/dynamic-routes
+
 
 - The Link component is intended ONLY for client-side routing.
 
