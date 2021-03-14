@@ -22,6 +22,30 @@
 
 - `outline-offset` allows you to add a gap between the element and the outline, like a second border.
 
+## Margin Collapse
+
+Margin collapse is when overlapping margins take up less space than their total sums.
+
+- Only vertical margins collapse: however, this will flip if the `writing-mode` is switched. The most accurate way to view this is that only block-direction margins collapse.
+
+- Only adjacent elements collapse: placing an `hr` between two elements, for example, would be enough to prevent this from happening.
+
+- The largest margin will win out in a collapse, and dictate the space taken up.
+
+- Nesting one of the elements in a container like a `div` will NOT prevent collapsing. For this to happen, there can be no elements in-between the parent and child, no height set on the parent, and no border or padding set on the relevant parent edge.
+
+- Margins can collapse in the same direction, as with a parent and child.
+
+- Negative margins can still collapse; In the case of positive and negative margins overlapping, they'll be added together, and that sum will be the computed margin.
+
+For multiple (more than 2) overlapping margins of mixed positivity:
+
+1) Find the largest positive margin
+2) Find the largest negative margin
+3) Add them together
+
+
+
 # Centering
 
 - The auto margin technique for centering elements is still quite useful when you have a single element that you need centered, and making the parent element a Flexbox or Grid container would be overkill.

@@ -10,7 +10,7 @@
 
 -Populate the file like so, installing dependencies as needed:
 
-```
+```javascript
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 import fetch from 'isomorphic-unfetch';
@@ -32,11 +32,24 @@ export function withApollo(PageComponent) {
 }
 ```
 
--Import withApollo into the index js, and wrap the component
+- Import withApollo into the index js, and wrap the component
 
--Install the isomorphic unfetch package
+- Don't forget to nstall the `isomorphic-unfetch` package
 
--getInitialProps is a React lifecycle method that doesn't exist in main React;
+# Data Fetching
+
+- getInitialProps is a React lifecycle method that doesn't exist in main React
+
+## How Pre-rendering works
+
+1) Request is sent to route
+2) Pre-rendered page is returned
+3) Page is hydrated with React code once loaded
+4) Page/Application is interactive
+
+## Static Generation
+
+- In which a page is pre-generated during build time: This happens by default with pages that only consist of basic HTML, etc.
 
 # Routing
 
@@ -47,10 +60,9 @@ file indicates the root of that part of the path
 
 - Parameterized routes can be created with brackets: `[id].jsx`
 
-- The router can be accessed with the `useRouter` hook, which gives access to the router object. This is a vital technique for both parameterized and catch-all routes.
-
 - Catch-all routes apply to everything that fits X template: Good for when you need similar layouts for dynamic information. Think of them like a reusable component, but on a page level. See https://nextjs.org/docs/routing/dynamic-routes
 
+- The router can be accessed with the `useRouter` hook, which gives access to the router object. This is a vital technique for both parameterized and catch-all routes.
 
 - The Link component is intended ONLY for client-side routing.
 
@@ -64,8 +76,6 @@ file indicates the root of that part of the path
 - Use the router API for programmatic routing
 
 # Styling
-
-
 
 # Theming
 
