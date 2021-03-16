@@ -44,6 +44,7 @@ For multiple (more than 2) overlapping margins of mixed positivity:
 2) Find the largest negative margin
 3) Add them together
 
+"Margin is like putting glue on something before you’ve decided what to stick it to, or if it should be stuck to anything."
 
 
 # Centering
@@ -93,19 +94,46 @@ To normalize application height when trying to fill the viewport:
 
 - the [`fit-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content) rule lets block level elements fill available space. It's a happy medium between the above two rules.
 
-
-
-
-
-
-
 # Gotchas
 
 - Padding gotcha: when it comes to padding, percentages always refer to the element's width, even for the top and bottom.
   
 # Never Do These Things
 
-- Add `outline: none;` to an element; this breaks keyboard a11y
+- Add `outline: none` to an element; this breaks keyboard a11y
+  
+# Positioning
+
+## Static
+
+- Every element has this as a default `position`
+
+- Setting position to any value other than `static` grants us access to the `top`, `left`, `right`, and `bottom` properties.
+
+## Absolute
+
+- This sort of positioning pulls an element completely out of flow.
+
+- A drawback of this strategy is that it can collapse parent elements.
+- 
+- Josh says: 
+  > "When you place an absolute item without specifying top/left/right/bottom, it sits where it would otherwise sit in 
+  > its in-flow position, but it's incorporeal, it doesn't take up any space."
+
+- **Only non-static elements can constrain absolutely-positioned children.**
+
+The system for containing absolutely positioned elements is like so:
+
+1) The DOM tree is traversed back to the top, looking for the first non-static parent, If found, the absolute child will be anchored to that element.
+
+2) If none exist, it'll be anchored to the "initial containing block", a box the size of the viewport at the top of the document.
+
+## Relative
+
+- This property makes elements **relative** to their natural position
+
+1) Constrains certain children
+2) Enables additional CSS properties
 
 # Responsive Tips and Tricks
 
@@ -115,7 +143,15 @@ To normalize application height when trying to fill the viewport:
 
 # Patterns 
 
-- When you have a single element that needs to break from the usual flow of it's sibling elements, consider using a wrapping container to impose the behaviour you need in that particular instance.
+To center using absolute positioning:
+
+1)  `position: absolute`
+2)  All 4 cardinal directions (top, left, bottom, right) set to `0px`
+3)  `margin: auto`
+4)  An explicit width and height
+
+- When you have a single element that needs to break from the usual flow of it's sibling elements, consider using a wrapping container to impose the behavior you need in that particular instance.
+
   
 # Units
 

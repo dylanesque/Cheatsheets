@@ -51,6 +51,27 @@ export function withApollo(PageComponent) {
 
 - In which a page is pre-generated during build time: This happens by default with pages that only consist of basic HTML, etc.
 
+- Static props are explicitly fetched like so:
+
+```javascript
+export async function getStaticProps(context) {
+  const res = await fetch(`https://.../data`)
+  const data = await res.json()
+
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: {}, // will be passed to the page component as props
+  }
+}
+```
+
+- Incremental Static Generation is when Next will re-generate the page at certain intervals: https://blog.logrocket.com/incremental-static-regeneration-with-next-js/
+
 # Routing
 
 - Next routing and Links work a lot like Gatsby, but with the system of Links being more verbose
