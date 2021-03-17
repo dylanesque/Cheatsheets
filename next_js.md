@@ -70,7 +70,22 @@ export async function getStaticProps(context) {
 }
 ```
 
+- With pre-generated dynamic content, we also need the `getStaticPaths` function:
+
+```javascript
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { ... } } // See the "paths" section below
+    ],
+    fallback: true or false // See the "fallback" section below
+  };
+}
+```
+
 - Incremental Static Generation is when Next will re-generate the page at certain intervals: https://blog.logrocket.com/incremental-static-regeneration-with-next-js/
+
+
 
 # Routing
 

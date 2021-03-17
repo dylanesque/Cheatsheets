@@ -101,6 +101,10 @@ To normalize application height when trying to fill the viewport:
 # Never Do These Things
 
 - Add `outline: none` to an element; this breaks keyboard a11y
+
+- Negative `z-index` values create more problems than they solve.
+
+- Don't build your own modals
   
 # Positioning
 
@@ -134,6 +138,27 @@ The system for containing absolutely positioned elements is like so:
 
 1) Constrains certain children
 2) Enables additional CSS properties
+
+## Stacking Context
+
+- Relatively positioned elements can overlap static siblings without z-index (if they're styled in a manner to allow that overlap), because the browser paints static elements first, even if they're declared later in the rendering order.
+
+- We need to do two things to make sure one sibling is absolutely positioned over another:
+
+1. Make sure that element's postion isn't `static`
+2. Give that element a larger z-index than that of it's sibling.
+
+- Deliberate positioning of siblings is the first technique to consider when stacking elements to forgo the need for `z-index`, AND maintain the DOM order.
+
+- The [`isolaton`](https://developer.mozilla.org/en-US/docs/Web/CSS/isolation) property creates a new stacking context: this is a compelling technique for when you need more complicated stacking logic than the above technique can provide, also precluding the need for z-index.
+
+- Stacking Context is how we determine precisely which elements can be elevated over another element. Some ways we can create a new stacking context:
+  - Setting opacity to less than 1
+  - Setting a position to fixed or sticky.
+  - Applying a `mix-blend-mode` to anything other than normal.
+  - Adding `z-index` to a `flex` or `grid` child.
+  - Using transform, filter, clip-path, or perspective
+  - Explicitly creating a context with `isolation: isolate`
 
 # Responsive Tips and Tricks
 
