@@ -1,3 +1,7 @@
+# CLI
+
+- Be generous with the `dry run` flag when using the CLI: it can save you a lot of backtracking because of typos/silly mistakes.
+
 # Components
 
 - Components should do two things: 
@@ -19,6 +23,10 @@
 
 
 # Directives
+
+# General Productivity
+
+- Consider keeping all interfaces in the application (or more realistically, a module) in a `types.ts` file, to keep them from bloating Components or Services.
 
 # Misc 
 
@@ -43,7 +51,7 @@ https://www.maestralsolutions.com/angular-application-state-management-you-do-no
 
 # Modules
 
-
+- How Angular breaks up feature functionality, and reuses components across modules
 # Production-Grade Angular
 
 Generally speaking:
@@ -69,7 +77,14 @@ Generally speaking:
 
 # Routing
 
-- When reading route parameters, use snapshot for simple cases, like when you want to read those params only one. If it's much much complicated than that or is expected to change, use Observables.
+- When reading route parameters, use snapshot for simple cases, like when you want to read those params only once. If it's much much complicated than that or is expected to change, use Observables.
+
+## Router Config Options
+
+- `enableTracing` should be set to 'true' when debugging
+
+- `preloadingStrategy` allows you to tweak your loading strategy as needed
+  
 
 # Services
 

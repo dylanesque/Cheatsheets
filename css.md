@@ -97,6 +97,18 @@ To normalize application height when trying to fill the viewport:
 # Gotchas
 
 - Padding gotcha: when it comes to padding, percentages always refer to the element's width, even for the top and bottom.
+
+- If a parent or grandparent of an `position: fixed` element uses `transform`, that will become the containing block for the fixed element, making it absolutely positioned. **Transformed parents can't have fixed children**. The same goes for `will-change: transform`
+
+# Hiding Content
+
+- Hiding content via `display: none` or not rendering in React? These options have minute performance tradeoffs (speed vs memory), but either one is generally fine.
+
+- `visibility: hidden` is the preferred technique for hiding an element when you want it to be invisible, but still take up space.
+
+- Another interesting thing about this property is that it can be selectively undone by children.
+
+- Use opacity for fading in and out, or partial visibility, not hiding.
   
 # Never Do These Things
 
@@ -104,9 +116,21 @@ To normalize application height when trying to fill the viewport:
 
 - Negative `z-index` values create more problems than they solve.
 
-- Don't build your own modals
+- Don't build your own modals.
+
+# Overflow
+
+- For when content needs to scroll, favor setting overflow to `auto` instead of `scroll`, keeping in mind that if you know for certain that a container needs to scroll, setting `overflow-y: scroll` may make for smoother behavior.
+   
+- `overflow: hidden` is a strong option for obscuring decoration without needing to deal with scrollbars.
+
+- ALWAYS comment the above property when you use it, because it's too easy to break something by refactoring it out.
+
+- `white-space: nowrap` is a good way to deal with horizontal scrolling.
   
 # Positioning
+
+## Fixed
 
 ## Static
 
@@ -160,7 +184,18 @@ The system for containing absolutely positioned elements is like so:
   - Using transform, filter, clip-path, or perspective
   - Explicitly creating a context with `isolation: isolate`
 
-# Responsive Tips and Tricks
+## Sticky
+
+- Sticky positioned elements will scroll within their parent container, but if that parent scrolls off the screen, the sticky element will too.
+
+- If `position: sticky` isn't working, go through these troubleshooting steps:
+  1. Make sure a parent isn't hiding `overflow`
+  2. Make sure the container is big enough to allow the sticky behavior you expect.
+  3. Is Flexbox or Grid stretching the element?
+
+# Tips and Tricks
+
+- `color: inherit` is a good way to style color in a more maintainable way than hard-coding the color.
 
 ## Max Width Wrapper
 
