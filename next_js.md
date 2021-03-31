@@ -2,6 +2,12 @@
 
 - Next.js has API routes, that work similar to pages
 
+To create API routes:
+
+1) Create an `api` folder in the `pages` directory.
+2) Add files as needed in this folder, which will create a path based on file names
+3) Create a `handler` function, which will accept a `req` and `res`
+
 # Apollo Client in Next.js
 
 -Wrapping the app in a HOC is the best way to go for Next & Apollo
@@ -84,6 +90,13 @@ export async function getStaticPaths() {
 ```
 
 - Incremental Static Generation is when Next will re-generate the page at certain intervals: https://blog.logrocket.com/incremental-static-regeneration-with-next-js/
+
+# Head Component
+
+- Next.js will merge multiple Head Components
+
+# Images
+
 
 
 

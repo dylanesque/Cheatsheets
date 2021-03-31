@@ -100,6 +100,8 @@ To normalize application height when trying to fill the viewport:
 
 - If a parent or grandparent of an `position: fixed` element uses `transform`, that will become the containing block for the fixed element, making it absolutely positioned. **Transformed parents can't have fixed children**. The same goes for `will-change: transform`
 
+- When using the `flex` shorthand, the `flex-basis` value will be set to 0, which will override any width you set. It's best to always explicitly set that value to whatever you need it to bo.
+
 # Hiding Content
 
 - Hiding content via `display: none` or not rendering in React? These options have minute performance tradeoffs (speed vs memory), but either one is generally fine.
