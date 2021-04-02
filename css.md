@@ -46,10 +46,16 @@ For multiple (more than 2) overlapping margins of mixed positivity:
 
 "Margin is like putting glue on something before you’ve decided what to stick it to, or if it should be stuck to anything."
 
+- Margin collapse doesn't work in flexbox layouts.
+
 
 # Centering
 
 - The auto margin technique for centering elements is still quite useful when you have a single element that you need centered, and making the parent element a Flexbox or Grid container would be overkill.
+  
+# Flexbox
+
+- When there is a conflict between layout modes, postioned alyout always wins
   
 # Flow Layout
 
@@ -131,6 +137,8 @@ To normalize application height when trying to fill the viewport:
 - `white-space: nowrap` is a good way to deal with horizontal scrolling.
   
 # Positioning
+
+
 
 ## Fixed
 
