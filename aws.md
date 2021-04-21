@@ -11,7 +11,19 @@ Six Major Advantages:
 
 "Let's See Nelly Loofah Massive Goats"
 
-## Terms
+# Setup
+
+1) Navigate to new account page and fill in information (AWS account name can be changed later on)
+2) If you so choose, navigate to IAM and modify the sign-in link to something a bit more user-friendly
+3) (optional) Set up billing alerts as needed in account preferences and CloudWatch
+4) Enable MFA for the account
+5) Setup individual users in IAM: Mgmt console should be enough for non-programmers or services that don't use the CLI, SDK, etc. 
+
+# Organizations 
+
+- This feature allows you to manage billing, access, compliance, security, and share resources amongst your accounts. 
+
+# Terms
 
 **Amazon Connect**: A virtual call center. Records calls, manages queues, route callers.
 

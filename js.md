@@ -1,3 +1,26 @@
+# AJAX
+
+```javascript
+    let xhr = new XMLHttpRequest();
+    
+```
+
+# Events
+
+## Event Targets
+
+- An event target is the element that the even is being called on, for example, the button that's being clicked
+
+- The first argument passed to a callback function by an event will always be that event, regardless of what it's called.
+
+- `event.target`: what got clicked, `event.currentTarget`: what fired the even listener
+
+- Propagation or 'event bubbling' is when an event 'bubbles' up and is "heard" by parent event listeners
+
+- Propagation is stopped by `event.stopPropagation()`
+
+- Setting `capture: true` on the options object on `addEventListener` allows you to capture other events
+
 # Functions
 
 - When there is a standalone function ala:

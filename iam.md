@@ -16,11 +16,15 @@
 
 + New Users have NO permissions when first created
 
-+ New Users are assigned Access Key ID & Secret Access Keys when first created
++ New Users can be assigned Access Key ID & Secret Access Keys when first created for acces to the CLI, SDK, and other dev tools, and a password for access to the mgmt console
 
 + Save these values in a secure location; you can only view them once, and will have to regenerate them if lost.
 
 + Always set Multifactor Authentication on your account.
+
++ Policies are documents that define sets of permissions
+  
++ All permissions are implicitly denied until set to otherwise
 
 + You can customize password requirements using IAM.
 
