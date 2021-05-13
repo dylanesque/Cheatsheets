@@ -14,6 +14,9 @@ new/modified properties to see how they'll look
 
 # Network: 
 
+- The blue line indicates DOMContentLoaded
+- The red line indicates LoadEvent
+
 # Performance:
 
 # Memory: 

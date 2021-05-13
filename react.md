@@ -4,7 +4,7 @@
 
 - The first exercise talked about how JavaScript can be used to generate HTML code via the DOM, and how this is the first stepping stone in understanding React and what it does. If you know how to completely generate HTML from JS using [Document API](https://developer.mozilla.org/en-US/docs/Web/API/Document) methods like `querySelectorAll()`, you're good to go here.
 
-- The second exercise talked about the React.createElement API, the lowest-level version of React. That method takes an element type and params as an argument, and returns a React Element. It also spells out that it is React itself that creates these elements, and the ReactDOM library that renders those created elements to the DOM. The "children" prop is discussed as well, something most prominently seen in Gatsby. React is using the browser API under the hood, but in a much more declarative manner. To sum it up, think of the main React library as being responsible for rendering elements via `React.createElement()`, and ReactDOM for rendering those elements to the DOM, like `rootElement.append()`
+- The second exercise talked about the `React.createElement` API, the lowest-level version of React. That method takes an element type and params as an argument, and returns a React Element. It also spells out that it is React itself that creates these elements, and the ReactDOM library that renders those created elements to the DOM. The "children" prop is discussed as well, something most prominently seen in Gatsby. React is using the browser API under the hood, but in a much more declarative manner. To sum it up, think of the main React library as being responsible for rendering elements via `React.createElement()`, and ReactDOM for rendering those elements to the DOM, like `rootElement.append()`
 
 - JSX is syntactic sugar on top of the basic React API that resembles HTML or XML. What it is is basically named custom components, with optional "props" which work much like HTML attributes. It's also worth noting that standard HTML attributes work in JSX, though they may sometimes need some syntactic adjustment, as in the famous case of "class" needing to be labelled as "className" in React. To expand on this, a react component is at it's most basic level a JS function that returns some markup or other renderable elements. 
 
@@ -33,7 +33,9 @@
 
 - Updating via this set function versus variable assignment is important, since the set function triggers a re-render.
 
--`this.setState()` is an asynchronous method. What this means is that if duplicate calls are made in a function, only the last one will be called. Furthermore, updated data from a setState call might not be available until the next render.
+-`this.setState()` is an asynchronous method. What this means is that if duplicate calls are made in a function, only the last one will be called. Furthermore, updated data from a setState call might not be available until the next render. Per the React docs:
+
+> 'React may batch multiple setState() calls into a single update for performance.'
 
 -Using functions can circumvent the aforementioned effect
 
@@ -60,7 +62,7 @@ the closest common parent when children share state.
 
 `React.useEffect(() => { something}, []);`
 
--useEffect is the hook used for impure actions, typically being used where lifecycle methods would have been called
+- `useEffect` is the hook used for impure actions, typically being used where lifecycle methods would have been called
 in older versions of React. The empty array shown in the example is an optional second argument. If it's called with an empty array, it will only run on mount and unmount. More frequently, it's filled with dependencies such as state to tell useEffect whether or not to re-render based on the dependencies included in the array having been changed.
 
 - Think of side-effects or impure actions in React as not just potentially mutable operations, but data that 

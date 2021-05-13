@@ -14,7 +14,7 @@
 }
 ```
 
-# Box Model Stuff
+# Box Model
 
 - When 3 values are provided for padding/margin/border, it takes the provided value for 'right' and plugs that into left.
 
@@ -48,6 +48,18 @@ For multiple (more than 2) overlapping margins of mixed positivity:
 
 - Margin collapse doesn't work in flexbox layouts.
 
+# calc
+
+- `calc()` is helpful for combining values, and presenting the math behind values, making them easier to reason about.
+
+- Instead of reaching for a px to rem calculator, we can do the math ourselves using `calc()`:
+
+```javascript
+h2 {
+  font-size: calc(24 / 16 * 1rem);
+}
+```
+
 
 # Centering
 
@@ -55,7 +67,7 @@ For multiple (more than 2) overlapping margins of mixed positivity:
   
 # Flexbox
 
-- When there is a conflict between layout modes, postioned alyout always wins
+- When there is a conflict between layout modes, positioned layout always wins
   
 # Flow Layout
 
@@ -73,7 +85,7 @@ For multiple (more than 2) overlapping margins of mixed positivity:
 
 - Be aware of, but don't worry too much about [space sensitivity](https://css-tricks.com/fighting-the-space-between-inline-block-elements)
 
-- Disadvantages: Inline block doesn't line-wrap, 
+- Disadvantages: Inline block doesn't line-wrap
 
 ## Replaced Elements
 
@@ -88,7 +100,7 @@ To normalize application height when trying to fill the viewport:
 1) Put `height: 100%` on every element before your main one.
 2) Put `min-height: 100%` on that wrapper, and don't try using percentage-based heights there.
    
--`vh` units are unformtunatly not a viable solution here, since they're based on the total **possible** height after taking scrolling into consideration on mobile devices.
+-`vh` units are unfortunately not a viable solution here, since they're based on the total **possible** height after taking scrolling into consideration on mobile devices.
 
 ## Width
 
@@ -108,6 +120,8 @@ To normalize application height when trying to fill the viewport:
 
 - When using the `flex` shorthand, the `flex-basis` value will be set to 0, which will override any width you set. It's best to always explicitly set that value to whatever you need it to bo.
 
+- `vw` DOES NOT count the scrollbar in it's calculation!
+
 # Hiding Content
 
 - Hiding content via `display: none` or not rendering in React? These options have minute performance tradeoffs (speed vs memory), but either one is generally fine.
@@ -117,6 +131,56 @@ To normalize application height when trying to fill the viewport:
 - Another interesting thing about this property is that it can be selectively undone by children.
 
 - Use opacity for fading in and out, or partial visibility, not hiding.
+
+# Mobile Concerns 
+
+- the `:hover` event doesn't exist on mobile devices. To set hover styling:
+
+```javascript
+@media (hover: hover) and (pointer: fine) {
+  button:hover {
+    text-decoration: underline;
+  }
+}
+```
+
+- A newer query type is preference-based. This is most useful for a11y concerns:
+
+```javascript
+@media (prefers-reduced-motion: no-preference) {
+  /* Animations here */
+}
+```
+
+## Breakpoints
+
+Common breakpoints:
+
+0-550px — Mobile
+550-1100px — Tablet
+1100-1500px — Laptop
+1500+px — Desktop
+
+- Josh's recommended solution, using styled-components:
+
+```javascript
+// For this example, I'm going mobile-first.
+// constants.js
+const BREAKPOINTS = {
+  tabletMin: 550,
+  laptopMin: 1100,
+  desktopMin: 1500,
+}
+const QUERIES = {
+  'tabletAndUp': `(min-width: ${BREAKPOINTS.tabletMin / 16}rem)`
+  'laptopAndUp': `(min-width: ${BREAKPOINTS.laptopMin / 16}rem)`
+  'desktopAndUp': `(min-width: ${BREAKPOINTS.desktopMin / 16}rem)`
+}
+```
+
+- Note the use of rems as the breakpoint unit above.
+
+
   
 # Never Do These Things
 
@@ -222,14 +286,38 @@ To center using absolute positioning:
 
 - When you have a single element that needs to break from the usual flow of it's sibling elements, consider using a wrapping container to impose the behavior you need in that particular instance.
 
+# Typography 
+
+
   
 # Units
 
-- Favor `rem`s for typography.
+- Favor `rem`s for typography for body text, `vw`s for headings where great amounts of flexibility are needed.
+
+- `clamp()` can be useful for the above, as Josh demonstrates:
+
+```css
+  font-size: clamp(
+    1.5rem,
+    4vw + 1rem,
+    3rem
+  );
+  ```
 
 - Pixels for box model properties
 
 - Go with either pixels or percentages for width or height, depending on the needs of your application.
 
 - Prefer hsl for colors.
+
+# Variables
+
+- CSS variables are inheritable, but are not globally scoped. 
+
+- Variables take an optional second argument, which is a default or fallback value.
+
+- CSS variables can be declared as fragments and composed, in the case of properties that take multiple 
+parameters like `border`, or `color`s using HSL.
+
+
   

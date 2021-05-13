@@ -5,6 +5,18 @@
     
 ```
 
+# Data Structures
+
+## Maps
+
+- One advantages of maps over objects is that the key can be of any type, not just a string.
+
+- If order matters, maps often trump objects.
+
+- On the other hand, no literal syntax
+
+- Cannot have methods on maps
+
 # Events
 
 ## Event Targets
@@ -33,7 +45,6 @@ function sodaMachine() {
 - That is a function statement. 
 
 - Functions assigned to variables are function expressions.
-
 
 # The Hard Parts
 

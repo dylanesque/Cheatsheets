@@ -1,0 +1,1 @@
+- API Gateway creates client-accessible gateways on the internet.

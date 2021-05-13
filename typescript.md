@@ -170,6 +170,8 @@ TODO: Understand the difference between `{}`, `object`, and `unknown`
 
 -Use the `.tsx` file extension when JSX is involved, and `.ts` when it isn't.
 
+- TS in Next.js is enabled by adding a `tsconfig.json` file (leave that blank), and running `npm install --save-dev typescript @types/react`
+
 -Typed props are one of the biggest major difference between TS React and regular React.
 
 ```   
@@ -188,9 +190,10 @@ export const Head = ({ title, isActive }: Props) => {}
 
 - Consider not typing functional components [at all](https://github.com/facebook/create-react-app/pull/8177)
 
--To type the 'children' prop, use `React.FC<OtherProps>`
+- To type functional components that utilize the 'children' prop, use `React.FC<OtherProps>`
 
--Use type inference for useState
+- Use type inference for useState for simple cases. If the hook initializes with a nullish value, strongly consider a union type.
 
-// !null read only
+- If you're not using inline event handlers, events should be typed.
+  
 -Type `useRef` like so: const sweetRef = useRef<HTMLInputElement>(!null)
