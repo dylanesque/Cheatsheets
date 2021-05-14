@@ -92,12 +92,13 @@ React.useEffect(() => {
 })
 ```
 
-
-
 -A close cousin to useEffect is `useLayoutEffect`: while they almost identical, useEffect will be what you need most of the time. According
 to Kent C. Dodds: 
 
-"However, if your effect is mutating the DOM (via a DOM node ref) and the DOM mutation will change the appearance of the DOM node between the time that it is rendered and your effect mutates it, then you don't want to use useEffect. You'll want to use useLayoutEffect. Otherwise the user could see a flicker when your DOM mutations take effect. This is pretty much the only time you want to avoid useEffect and use useLayoutEffect instead."
+> "However, if your effect is mutating the DOM (via a DOM node ref) and the DOM mutation will change the appearance of 
+> the DOM node between the time that it is rendered and your effect mutates it, then you don't want to use useEffect.
+> You'll want to use useLayoutEffect. Otherwise the user could see a flicker when your DOM mutations take effect. 
+> This is pretty much the only time you want to avoid useEffect and use useLayoutEffect instead."
 
 ## Custom Hooks 
 
@@ -165,10 +166,10 @@ the component has been unmounted
 
 -Kent says: 
 
-> Context also has the unique ability to be scoped to a specific section of the React component tree. 
+> "Context also has the unique ability to be scoped to a specific section of the React component tree. 
 > A common mistake of context (and generally any “application” state) is to make it globally available 
-> anywhere in your >application when it’s actually only needed to be available in a part of the app 
-> (like a single page). Keeping a >context value scoped to the area that needs it most has improved 
+> anywhere in your application when it’s actually only needed to be available in a part of the app 
+> (like a single page). Keeping a context value scoped to the area that needs it most has improved 
 > performance and maintainability characteristics."
 
 -`useImperativeHandle` is described in the React docs as:
