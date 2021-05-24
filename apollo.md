@@ -30,3 +30,8 @@ const client = new ApolloClient({
    and pass the Apollo Client instance as a prop to that.
 
 # Apollo Server
+
+- From the Apollo website:
+
+> "Apollo Server is an open-source, spec-compliant GraphQL server that's compatible with any GraphQL client, including Apollo Client. It's the best way to build a production-ready, self-documenting GraphQL API that can use data from any source."
+

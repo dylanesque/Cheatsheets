@@ -167,18 +167,36 @@ the component has been unmounted
 -Kent says: 
 
 > "Context also has the unique ability to be scoped to a specific section of the React component tree. 
-> A common mistake of context (and generally any “application” state) is to make it globally available 
-> anywhere in your application when it’s actually only needed to be available in a part of the app 
-> (like a single page). Keeping a context value scoped to the area that needs it most has improved 
-> performance and maintainability characteristics."
+ A common mistake of context (and generally any “application” state) is to make it globally available 
+ anywhere in your application when it’s actually only needed to be available in a part of the app 
+ (like a single page). Keeping a context value scoped to the area that needs it most has improved 
+ performance and maintainability characteristics."
 
 -`useImperativeHandle` is described in the React docs as:
 
->useImperativeHandle customizes the instance value that is exposed to parent components when using ref. 
->As always, imperative code using refs should be avoided in most cases. useImperativeHandle should be 
->used with forwardRef
+> "useImperativeHandle customizes the instance value that is exposed to parent components when using ref. 
+used with forwardRef
+As always, imperative code using refs should be avoided in most cases. useImperativeHandle should be"
 
--Uses of this hook should be fairly infrequent, and always documented as to why it's necessary in that particular case.
+- Uses of this hook should be fairly infrequent, and always documented as to why it's necessary in that particular case.
+
+## React Component Lifecycle
+
+1. Mount: Lazy initializers (functions passed to `useState` or `useEffect`) are run.
+
+2. Update: The component is rendered, which consists of:
+   - React updates the DOM
+   - Performs cleanup of layoutEffects
+   - Runs layoutEffects
+
+Then:
+
+- The browser paints the screen
+- Performs cleanup of effects
+- runs effects
+
+- Updates are triggered by a parent re-render, or changes to state or context.
+
 
 # Epic React: Advanced React Patterns
 
