@@ -2,7 +2,7 @@
 
 - Before reaching for a class to target an element, first try to accomplish that with combinators, or descendant selectors.
 
-- List of interitable properties: https://www.sitepoint.com/css-inheritance-introduction#list-css-properties-inherit
+- List of inheritable properties: https://www.sitepoint.com/css-inheritance-introduction#list-css-properties-inherit
 
 # Important resets/defaults
 
@@ -46,7 +46,7 @@ For multiple (more than 2) overlapping margins of mixed positivity:
 
 "Margin is like putting glue on something before you’ve decided what to stick it to, or if it should be stuck to anything."
 
-- Margin collapse doesn't work in flexbox layouts.
+- Margin collapse doesn't work in Flexbox layouts.
 
 # calc
 
@@ -202,8 +202,6 @@ const QUERIES = {
   
 # Positioning
 
-
-
 ## Fixed
 
 ## Static
@@ -243,12 +241,12 @@ The system for containing absolutely positioned elements is like so:
 
 - We need to do two things to make sure one sibling is absolutely positioned over another:
 
-1. Make sure that element's postion isn't `static`
+1. Make sure that element's position isn't `static`
 2. Give that element a larger z-index than that of it's sibling.
 
 - Deliberate positioning of siblings is the first technique to consider when stacking elements to forgo the need for `z-index`, AND maintain the DOM order.
 
-- The [`isolaton`](https://developer.mozilla.org/en-US/docs/Web/CSS/isolation) property creates a new stacking context: this is a compelling technique for when you need more complicated stacking logic than the above technique can provide, also precluding the need for z-index.
+- The [`isolation`](https://developer.mozilla.org/en-US/docs/Web/CSS/isolation) property creates a new stacking context: this is a compelling technique for when you need more complicated stacking logic than the above technique can provide, also precluding the need for z-index.
 
 - Stacking Context is how we determine precisely which elements can be elevated over another element. Some ways we can create a new stacking context:
   - Setting opacity to less than 1

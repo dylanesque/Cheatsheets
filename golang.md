@@ -10,7 +10,28 @@
 
 - `*` turns a pointer into a value
 
-## Reference & Value in Go
+- Variables of the same type can be declared on the same line: `var name, address string`
+
+- A rune is a single text character
+  
+- Every primitive data type in Go has a `zero value`, which is the value that it's temporarily 
+assigned if it's initialized but not assigned a value
+
+- Go is a "pass by value" language, meaning that functions receive a copy of a value when it's passed as an argument to a parameter.
+- This is why we sometimes utilize Pointers in Go
+
+## Formatting Verbs
+
+- `%f`: float
+- `%d`: decimal integer
+- `%s`: string
+- `%t`: boolean
+- `%v`: any value
+- `%#v`: any value, formatted as it would appear in source code
+- `%T`: Type of the supplied value
+- `%%`: A literal percent sign
+
+# Reference & Value in Go
 
 - Value types (use pointers to change these in a function): int, float, string, bool, structs
 
@@ -26,6 +47,28 @@
 - `go format` formats all files in a directory
 
 - `go install` installs packages
+
+- `go run` runs a program
+
+- `go fmt` manually formats a program
+
+- `go version` prints the current version
+
+
+
+## Looping
+
+- The for loop is the main looping construct in Go
+
+```golang
+for i := 0; i++ {
+    fmt.Println(i)
+}
+```
+
+# Data Structures
+
+- Arrays are statically sized in Go, and not used as often as slices
 
 ## Maps vs Structs
 
