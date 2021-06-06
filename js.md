@@ -33,6 +33,17 @@
 
 - Setting `capture: true` on the options object on `addEventListener` allows you to capture other events
 
+# DOM
+
+- The `document` encompasses everything between the opening and closing `html` tags.
+
+- When single `querySelector` is used and there are multiple instances of that element, it will grab only the first one.
+
+## Nodes vs Elements
+
+
+
+
 # Functions
 
 - When there is a standalone function ala:

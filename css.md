@@ -24,7 +24,7 @@
 
 ## Margin Collapse
 
-Margin collapse is when overlapping margins take up less space than their total sums.
+- Margin collapse is when overlapping margins take up less space than their total sums.
 
 - Only vertical margins collapse: however, this will flip if the `writing-mode` is switched. The most accurate way to view this is that only block-direction margins collapse.
 
@@ -40,9 +40,9 @@ Margin collapse is when overlapping margins take up less space than their total 
 
 For multiple (more than 2) overlapping margins of mixed positivity:
 
-1) Find the largest positive margin
-2) Find the largest negative margin
-3) Add them together
+1. Find the largest positive margin
+2. Find the largest negative margin
+3. Add them together
 
 "Margin is like putting glue on something before you’ve decided what to stick it to, or if it should be stuck to anything."
 
@@ -97,10 +97,10 @@ h2 {
 
 To normalize application height when trying to fill the viewport:
 
-1) Put `height: 100%` on every element before your main one.
-2) Put `min-height: 100%` on that wrapper, and don't try using percentage-based heights there.
+1. Put `height: 100%` on every element before your main one.
+2. Put `min-height: 100%` on that wrapper, and don't try using percentage-based heights there.
    
--`vh` units are unfortunately not a viable solution here, since they're based on the total **possible** height after taking scrolling into consideration on mobile devices.
+- `vh` units are unfortunately not a viable solution here, since they're based on the total **possible** height after taking scrolling into consideration on mobile devices.
 
 ## Width
 

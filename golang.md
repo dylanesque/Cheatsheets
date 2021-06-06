@@ -44,17 +44,24 @@ assigned if it's initialized but not assigned a value
 
 - `go build` builds an exe
 
-- `go format` formats all files in a directory
+- `go fmt` formats all files in a directory
 
 - `go install` installs packages
 
 - `go run` runs a program
 
-- `go fmt` manually formats a program
-
 - `go version` prints the current version
 
+## Functions & Methods
 
+- Unlike many other methods, there's a syntactical difference in how methods 
+are written vs functions, namely that they take receiver parameters:
+
+```go
+func (s string) destroyString() {
+    // something something string
+}
+```
 
 ## Looping
 

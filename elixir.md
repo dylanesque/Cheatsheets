@@ -10,7 +10,7 @@
 
 -Modules and functions in Elixir resemble blocks in Ruby with syntax like so:
 
-```
+```elixir
 defmodule Amazing do
   # body of module
 end
