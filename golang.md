@@ -38,7 +38,7 @@ assigned if it's initialized but not assigned a value
 - Reference types: slices, maps, channels, pointers, functions
 
 
-## Commands
+# Commands
 
 - The command `go run main.go` is how to run a package
 
@@ -52,7 +52,7 @@ assigned if it's initialized but not assigned a value
 
 - `go version` prints the current version
 
-## Functions & Methods
+# Functions & Methods
 
 - Unlike many other methods, there's a syntactical difference in how methods 
 are written vs functions, namely that they take receiver parameters:
@@ -62,8 +62,13 @@ func (s string) destroyString() {
     // something something string
 }
 ```
+# I/O
 
-## Looping
+- To read from stdin: `  reader := bufio.NewReader(os.Stdin)`
+  
+- To assign that to a string: `name, _ := reader.ReadString('\n')`
+  
+# Looping
 
 - The for loop is the main looping construct in Go
 
