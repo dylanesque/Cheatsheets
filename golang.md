@@ -31,12 +31,17 @@ assigned if it's initialized but not assigned a value
 - `%T`: Type of the supplied value
 - `%%`: A literal percent sign
 
-# Reference & Value in Go
+## Reference & Value in Go
 
 - Value types (use pointers to change these in a function): int, float, string, bool, structs
 
 - Reference types: slices, maps, channels, pointers, functions
 
+## Types
+
+### Conversion
+
+- 🔥 tip: Before you convert types, make sure that you're not passing them into a method that needs them to be a certain type, saving you the trouble of that conversion to begin with. A canonical example is `float64` being passed into `math.Round`.
 
 # Commands
 
@@ -51,6 +56,8 @@ assigned if it's initialized but not assigned a value
 - `go run` runs a program
 
 - `go version` prints the current version
+
+- `go doc <somefunction>` prints out information about that method 
 
 # Functions & Methods
 

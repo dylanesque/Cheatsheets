@@ -166,6 +166,8 @@ TODO: Understand the difference between `{}`, `object`, and `unknown`
 
 # TS in React
 
+- The best reference when using TS in React: https://react-typescript-cheatsheet.netlify.app/
+
 -When using CRA, use the `--typescript` flag after the project name to use TypeScript in the project, or for newer versions: `--template typescript`
 
 -Use the `.tsx` file extension when JSX is involved, and `.ts` when it isn't.
@@ -174,7 +176,7 @@ TODO: Understand the difference between `{}`, `object`, and `unknown`
 
 -Typed props are one of the biggest major difference between TS React and regular React.
 
-```   
+```javascript
 type Props = {
   title: string,
   isActive: boolean
@@ -188,9 +190,17 @@ export const Head = ({ title, isActive }: Props) => {}
 
 - Caveat to the last point: extending types IS possible using intersections
 
-- Consider not typing functional components [at all](https://github.com/facebook/create-react-app/pull/8177)
 
-- To type functional components that utilize the 'children' prop, use `React.FC<OtherProps>`
+
+- ~~To type functional components that utilize the `children` prop, use `React.FC<OtherProps>`~~
+  
+- `React.ReactChild` is the most bulletproof way to type children, as in the below example (which also demonstrates typing CSS styles):
+
+```js
+type BoxProps = { children: React.ReactChild | React.ReactChild[], style?: React.CSSProperties };
+```
+
+- Consider not typing functional components [at all](https://github.com/facebook/create-react-app/pull/8177)
 
 - Use type inference for useState for simple cases. If the hook initializes with a nullish value, strongly consider a union type.
 
