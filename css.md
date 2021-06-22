@@ -132,6 +132,23 @@ To normalize application height when trying to fill the viewport:
 
 - Use opacity for fading in and out, or partial visibility, not hiding.
 
+# Images
+
+- Images have an intrinsic size, namely the dimensons of the original file.
+
+- They also have an intrinsic aspect ratio, meaning that if we only provide a value for `width` or `height`, the other will scale to preserve that ratio.
+
+- `object-fit` contains several ways to style replaced elements like images.
+- You can also toggle how a replaced elemeent is aligned using `object-position`
+
+## Images & Flexbox
+
+- The default align-items for a cross-axis in flxbox is stretch, which can lead to odd image behavior.
+
+- Wrapping images in (non-flex) containers sidesteps quite a few isseus with flexbox
+
+
+
 # Mobile Concerns 
 
 - the `:hover` event doesn't exist on mobile devices. To set hover styling:

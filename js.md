@@ -59,47 +59,50 @@ function sodaMachine() {
 
 # The Hard Parts
 
-## Basics
+## JS Principles
 
--JavaScript does two things at it's most basic level:
-    1) Goes through written code line by line, and executes those lines
+- JavaScript does two things at it's most basic level:
+    1) Goes through written code line by line, and executes those lines, the *thread of execution*
     2) Saves data (primitives an data structures) in memory
 
--The execution context of code is comprised of it's a) Thread of execution and b) memory
+- The execution context of code is comprised of it's: a) Thread of execution and b) memory
 
--JavaScript utilizes the call stack to keep track of it's thread of execution
+- JavaScript utilizes the call stack to keep track of it's thread of execution.
 
--Because functions in JavaScript are first-class "citizens" (Objects), we can utilize the sort of flexible
-behavior seen in techniques like higherorder functions, that include:
+- The global execution context is always at the bottom of the call stack
 
-    -They can be assigned to variables and as properties of other objects
 
-    -They can be passed as arguments into other functions
+- Because functions in JavaScript are first-class "citizens" (Objects), we can utilize the sort of flexible behavior seen in techniques like higher-order functions, that include:
 
-    -They can be returned as values from other functions
+    - They can be assigned to variables and as properties of other objects
+
+    - They can be passed as arguments into other functions
+
+    - They can be returned as values from other functions
+
+- Parameter = label, argument = what's being labelled
 
 ## Closures
 
--The most esoteric of JavaScript concepts?
+- The most esoteric of JavaScript concepts?
 
--Enables powerful pro-level functions like 'once' or 'memoize'
+- Enables powerful pro-level functions like 'once' or 'memoize'
 
--Many JS patterns (such as the module pattern) utilize closures
+- Many JS patterns (such as the module pattern) utilize closures
 
--It enables you to build iterators, handle partial application, and maintain state in an async world.
+- It enables you to build iterators, handle partial application, and maintain state in an async world.
 
--When functions are declared, they get a hidden property that refers to the lexical scope of where they were declared.
+- When functions are declared, they get a hidden property that refers to the lexical scope of where they were declared.
 
--Think about the 'backpack of data' that passes throughout scopes
+- Think about the 'backpack of data' that passes throughout scopes
 
--That backpack is the C.O.V.E: Closed Over Variable Environment
+- That backpack is the C.O.V.E: Closed Over Variable Environment
 
--JavaScript is lexically (aka static) scoped
+- JavaScript is lexically (aka static) scoped
 
 - Kyle Simpson defines a closure as:
 
-> Closure is observed when a function uses variable(s) from outer scope(s) even while running in a scope where 
-> those variable(s) wouldn't be accessible.
+> "Closure is observed when a function uses variable(s) from outer scope(s) even while running in a scope where those variable(s) wouldn't be accessible."
 
 - Closure can improve efficiency by allowing a function instance to remember previously determined information instead of having to compute it each time.
 

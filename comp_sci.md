@@ -26,5 +26,7 @@
 
 - Understanding how the call stack works is important to truly understanding recursion. As the recursive call runs, the call stack gets fuller until the base case is reached.
 
-- JS DOES NOT have consistent tail recursion support. 
+- JS DOES NOT have consistent tail recursion support, though it is starting to creep in. 
+
+
 
