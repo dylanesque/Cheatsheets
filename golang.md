@@ -4,11 +4,19 @@
 
 - Improvements on C include [memory safety](), [garbage collection](), [structural typing](), and concurrency.
 
+- Go is object-oriented, but much more weakly so than a language like Java
+
+Recommended project structure:
+
+- src folder for source code
+- pkg for packages
+- bin for executables
+
 # Basics
 
-- `&` turns a value into a pointer
+- `&` creates a pointer to something in memory
 
-- `*` turns a pointer into a value
+- `*` gets a value from a pointer
 
 - Variables of the same type can be declared on the same line: `var name, address string`
 
@@ -69,6 +77,10 @@ func (s string) destroyString() {
     // something something string
 }
 ```
+
+- Functions are first-class, and can be declared as vars:
+
+
 # I/O
 
 - To read from stdin: `  reader := bufio.NewReader(os.Stdin)`
@@ -84,6 +96,10 @@ for i := 0; i++ {
     fmt.Println(i)
 }
 ```
+
+# Concurrency 
+
+- The order of execution between concurrent tasks is not known.
 
 # Data Structures
 

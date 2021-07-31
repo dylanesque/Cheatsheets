@@ -46,7 +46,7 @@ For multiple (more than 2) overlapping margins of mixed positivity:
 
 "Margin is like putting glue on something before you’ve decided what to stick it to, or if it should be stuck to anything."
 
-- Margin collapse doesn't work in Flexbox layouts.
+- Margin collapse doesn't work in Flexbox or Grid layouts.
 
 # calc
 
@@ -59,7 +59,6 @@ h2 {
   font-size: calc(24 / 16 * 1rem);
 }
 ```
-
 
 # Centering
 
@@ -122,6 +121,18 @@ To normalize application height when trying to fill the viewport:
 
 - `vw` DOES NOT count the scrollbar in it's calculation!
 
+# Grid
+
+- When it comes to grid alignment: 
+
+> "justify-content applies to the grid structure, changing the columns. justify-items applies to the child elements, without affecting the shape of the grid."
+
+- When using `minmax()` to set variable grid dimensions, the flexible unit must be LAST: `minmax(250px, 1fr)`
+
+- To add colored dividers to a grid layout, you need to remove the gap and add padding, and then carefully add in borders.
+
+
+
 # Hiding Content
 
 - Hiding content via `display: none` or not rendering in React? These options have minute performance tradeoffs (speed vs memory), but either one is generally fine.
@@ -134,20 +145,22 @@ To normalize application height when trying to fill the viewport:
 
 # Images
 
-- Images have an intrinsic size, namely the dimensons of the original file.
+- Images have an intrinsic size, namely the dimensions of the original file.
 
 - They also have an intrinsic aspect ratio, meaning that if we only provide a value for `width` or `height`, the other will scale to preserve that ratio.
 
 - `object-fit` contains several ways to style replaced elements like images.
-- You can also toggle how a replaced elemeent is aligned using `object-position`
+- You can also toggle how a replaced element is aligned using `object-position`
 
 ## Images & Flexbox
 
-- The default align-items for a cross-axis in flxbox is stretch, which can lead to odd image behavior.
+- The default align-items for a cross-axis in flexbox is stretch, which can lead to odd image behavior.
 
-- Wrapping images in (non-flex) containers sidesteps quite a few isseus with flexbox
+- Wrapping images in (non-flex) containers sidesteps quite a few issues with flexbox
 
+## Responsive Images
 
+- The `srcset` attribute lets you determine several different image sizes, and the browser decides the correct one.
 
 # Mobile Concerns 
 
@@ -168,6 +181,8 @@ To normalize application height when trying to fill the viewport:
   /* Animations here */
 }
 ```
+
+- Strongly consider utilizing buffers in your breakpoints to account for padding, etc, on the individual element level
 
 ## Breakpoints
 
@@ -197,8 +212,6 @@ const QUERIES = {
 
 - Note the use of rems as the breakpoint unit above.
 
-
-  
 # Never Do These Things
 
 - Add `outline: none` to an element; this breaks keyboard a11y
@@ -232,10 +245,9 @@ const QUERIES = {
 - This sort of positioning pulls an element completely out of flow.
 
 - A drawback of this strategy is that it can collapse parent elements.
-- 
+
 - Josh says: 
-  > "When you place an absolute item without specifying top/left/right/bottom, it sits where it would otherwise sit in 
-  > its in-flow position, but it's incorporeal, it doesn't take up any space."
+  > "When you place an absolute item without specifying top/left/right/bottom, it sits where it would otherwise sit in its in-flow position, but it's incorporeal, it doesn't take up any space."
 
 - **Only non-static elements can constrain absolutely-positioned children.**
 
@@ -273,6 +285,8 @@ The system for containing absolutely positioned elements is like so:
   - Using transform, filter, clip-path, or perspective
   - Explicitly creating a context with `isolation: isolate`
 
+  - Grid children can take advantage of z-index without the need to adjust their `position` type.
+
 ## Sticky
 
 - Sticky positioned elements will scroll within their parent container, but if that parent scrolls off the screen, the sticky element will too.
@@ -303,8 +317,7 @@ To center using absolute positioning:
 
 # Typography 
 
-
-  
+- The `ch` unit is roughly equivalent to a `0`, and will vary depending on the particular font.
 # Units
 
 - Favor `rem`s for typography for body text, `vw`s for headings where great amounts of flexibility are needed.
@@ -324,6 +337,8 @@ To center using absolute positioning:
 - Go with either pixels or percentages for width or height, depending on the needs of your application.
 
 - Prefer hsl for colors.
+
+- Use `em` ONLY when you need a property to scale directly with font-size.
 
 # Variables
 

@@ -5,6 +5,13 @@
     
 ```
 
+# Primitives
+
+- Primitive values are immutable, as in many other languages...
+- But this doesn't mean that primitive VARIABLES are immutable.
+
+- Think of pointers in languages like Golang or C/C++
+
 # Data Structures
 
 ## Maps
@@ -57,6 +64,8 @@ function sodaMachine() {
 
 - Functions assigned to variables are function expressions.
 
+- Like Golang, JS is a "pass by value" language: functions receive references to values
+
 # The Hard Parts
 
 ## JS Principles
@@ -92,13 +101,13 @@ function sodaMachine() {
 
 - It enables you to build iterators, handle partial application, and maintain state in an async world.
 
-- When functions are declared, they get a hidden property that refers to the lexical scope of where they were declared.
+- When functions are declared, they get a **hidden property that refers to the lexical scope of where they were declared**.
 
 - Think about the 'backpack of data' that passes throughout scopes
 
 - That backpack is the C.O.V.E: Closed Over Variable Environment
 
-- JavaScript is lexically (aka static) scoped
+- JavaScript is lexically (aka static) scoped (Persistent Lexically Scoped Reference Data)
 
 - Kyle Simpson defines a closure as:
 
@@ -124,33 +133,31 @@ function sodaMachine() {
 
 JavaScript is:
 
--Single-threaded, meaning that one command runs at a time
+- Single-threaded, meaning that one command runs at a time
 
--Synchronously executed (each line is run in order that the code appears)
+- Synchronously executed (each line is run in order that the code appears)
 
--The simplest explanation of the event loop is this: if there is any synchronous code on the call stack waiting to be run, 
-asynchronous code such as a function wrapped in setTimeout will not run until the sync code (including that in the global context) is cleared
+- The simplest explanation of the event loop is this: if there is any synchronous code on the call stack waiting to be run, asynchronous code such as a function wrapped in setTimeout will not run until the sync code (including that in the global context) is cleared
 
 ES5 Web Browser APIs with callbacks are: 
 
--Very explicit once you understand how they work under the hood!
+- Very explicit once you understand how they work under the hood!
 
--.....But the response data is only available in callback form, and it's odd to think about a function to run much faster once it's passed into another function
+- ...But the response data is only available in callback form, and it's odd to think about a function to run much faster once it's passed into another function
 
--Not the cleanest for error handling
+- Not the cleanest for error handling
 
 ## Promises
 
 -Promises utilize a two-pronged approach: 1) Sets up a network request to browser features, 2) returns a placeholder object (the actual Promise)
 
--The Promise object contains two properties: a value, and an onFulfillment field.
-    -Value contains the value that the promise is fetching (like JSON data from an API endpoint)
-    -the onFulfillment properties executes code passed to it by the `.then()` method.
+- The Promise object contains two properties: a value, and an onFulfillment field.
+    
+- Value contains the value that the promise is fetching (like JSON data from an API endpoint) the onFulfillment properties executes code passed to it by the `.then()` method.
 
--Old school async browser code is queued in the callback queue (called the task queue in the specs). Async code returned by Promises is queued in
-the microtask queue
+- Old school async browser code is queued in the callback queue (called the task queue in the specs). Async code returned by Promises is queued in the microtask queue
 
--Items in the microtask queue are prioritized over the microtask queue
+- Items in the microtask queue are prioritized over the microtask queue
 
 ### Advantages
 
@@ -162,13 +169,13 @@ the microtask queue
 
 -Vast majority of developers have no idea how they work under the hood, and bomb technical interviews & have a tough time debugging code as a result.
 
-## Classes and Prototypes
-
--One of the beautiful things about objects is that they can store data and functionality in one place
-
--
-
 # The Hard Parts of OOP
+
+- One of the beautiful things about objects is that they can store data and functionality in one place
+
+- `Object.create()` is an example of a Factory function
+
+
 
 # The Hard Parts of Servers & Node.js
 

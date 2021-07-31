@@ -8,6 +8,8 @@
 
 - JSX is syntactic sugar on top of the basic React API that resembles HTML or XML. What it is is basically named custom components, with optional "props" which work much like HTML attributes. It's also worth noting that standard HTML attributes work in JSX, though they may sometimes need some syntactic adjustment, as in the famous case of "class" needing to be labelled as "className" in React. To expand on this, a react component is at it's most basic level a JS function that returns some markup or other renderable elements. 
 
+- On importing React: https://epicreact.dev/importing-react-through-the-ages/
+
 - `propTypes` provide runtime validation for React props. While you could use this, it may be better to use TypeScript instead, as it covers a lot more bases in terms of static analysis, and catches them earlier to boot.
 
 - Styling in React happens in one of two basic ways: a) Writing styles inline with the `style` prop, and b) Standard CSS applied with the `className` prop.
@@ -19,8 +21,6 @@
 # Epic React: React Hooks
 
 - In general, Hooks are how modern React stores and modifies state.
-
-## Hooks Flow
 
 ## useState
 
@@ -37,20 +37,20 @@
 
 > 'React may batch multiple setState() calls into a single update for performance.'
 
--Using functions can circumvent the aforementioned effect
+- Using functions can circumvent the aforementioned effect
 
 ## Extensibility and Advanced Use Cases
 
--State can be set initially with a default value that is either hard-coded, or passed in as a prop. 
+- State can be set initially with a default value that is either hard-coded, or passed in as a prop. 
 
--One useful pattern surrounding lazy initialization is to check for an existing value before loading an initial value, like so:
+- One useful pattern surrounding lazy initialization is to check for an existing value before loading an initial value, like so:
 `() => window.localStorage.getItem('name') || initialName`
 
 - When you have state that depends on other pieces of state, make sure you're dealing with that by deriving state instead of syncing it, as discussed in [this article](https://kentcdodds.com/blog/dont-sync-state-derive-it)
 
 ## Lifting State
 
--When it comes to the question of 'where does state live?', the way to go is to keep it as close to where it's being used as possible, which is in 
+- When it comes to the question of 'where does state live?', the way to go is to keep it as close to where it's being used as possible, which is in 
 the closest common parent when children share state.
 
 ## useRef
@@ -63,7 +63,7 @@ the closest common parent when children share state.
 `React.useEffect(() => { something}, []);`
 
 - `useEffect` is the hook used for impure actions, typically being used where lifecycle methods would have been called
-in older versions of React. The empty array shown in the example is an optional second argument. If it's called with an empty array, it will only run on mount and unmount. More frequently, it's filled with dependencies such as state to tell useEffect whether or not to re-render based on the dependencies included in the array having been changed.
+in older versions of React. The empty array shown in the example is an optional second argument. If it's called with an empty array, it will only run on mount and unmount. More frequently, it's filled with dependencies such as state to tell useEffect whether or not to re-render based on any one or more of the dependencies included in the array having been changed.
 
 - Think of side-effects or impure actions in React as not just potentially mutable operations, but data that 
   comes from or goes to sources outside the React application.
@@ -92,19 +92,16 @@ React.useEffect(() => {
 })
 ```
 
--A close cousin to useEffect is `useLayoutEffect`: while they almost identical, useEffect will be what you need most of the time. According
+- A close cousin to useEffect is `useLayoutEffect`: while they almost identical, useEffect will be what you need most of the time. According
 to Kent C. Dodds: 
 
-> "However, if your effect is mutating the DOM (via a DOM node ref) and the DOM mutation will change the appearance of 
-> the DOM node between the time that it is rendered and your effect mutates it, then you don't want to use useEffect.
-> You'll want to use useLayoutEffect. Otherwise the user could see a flicker when your DOM mutations take effect. 
-> This is pretty much the only time you want to avoid useEffect and use useLayoutEffect instead."
+> "However, if your effect is mutating the DOM (via a DOM node ref) and the DOM mutation will change the appearance of  the DOM node between the time that it is rendered and your effect mutates it, then you don't want to use useEffect. You'll want to use useLayoutEffect. Otherwise the user could see a flicker when your DOM mutations take effect.  This is pretty much the only time you want to avoid useEffect and use useLayoutEffect instead."
 
 ## Custom Hooks 
 
--Custom Hooks are nothing more than regular hooks extracted into a custom function for reusability
+- Custom Hooks are nothing more than regular hooks extracted into a custom function for reusability
 
--When returning items from custom hooks, there is a give and take with using arrays versus objects:
+- When returning items from custom hooks, there is a give and take with using arrays versus objects:
 
 1) Use an array if you want to rename output or have multiple uses of the hook
 2) Use an object if you want named properties, or don't want return order to matter
@@ -152,31 +149,25 @@ function useLocalStorageState(
 
 # Epic React: Advanced React Hooks
 
--The `useReducer` hook's closest equivalent is the Redux framework: if you have state management needs that are far too complicated for useState to handle, you want to reach for this. useReducer contains a lot of the best parts of Redux, but is not entirely a drop-in replacement for it.
+- The `useReducer` hook's closest equivalent is the Redux framework: if you have state management needs that are far too complicated for useState to handle, you want to reach for this. useReducer contains a lot of the best parts of Redux, but is not entirely a drop-in replacement for it.
 
--`useCallback` exists to deal with the problem of a function being a dependency in the useEffect dependency array: 
+- `useCallback` exists to deal with the problem of a function being a dependency in the useEffect dependency array: 
 Functions get re-initialized every render, which makes them brand new every render, so it will get called every render, regardless of whether or not that's the actual intention.
 
--It's structure is much like that of useEffect: The function in question is passed as an argument to the hook, then list the actual dependencies in the dependency array. If they're unchanged on future renders, REact will give the same function it did last time
+- It's structure is much like that of useEffect: The function in question is passed as an argument to the hook, then list the actual dependencies in the dependency array. If they're unchanged on future renders, REact will give the same function it did last time
 
--There are instances where you'll want to use a pattern that flags operations as unsafe or not to be performed if 
+- There are instances where you'll want to use a pattern that flags operations as unsafe or not to be performed if 
 the component has been unmounted
 
--The `useContext` hook emulates the older Context API that exists for the problem of prop drilling.
+- The `useContext` hook emulates the older Context API that exists for the problem of prop drilling.
 
 -Kent says: 
 
-> "Context also has the unique ability to be scoped to a specific section of the React component tree. 
- A common mistake of context (and generally any “application” state) is to make it globally available 
- anywhere in your application when it’s actually only needed to be available in a part of the app 
- (like a single page). Keeping a context value scoped to the area that needs it most has improved 
- performance and maintainability characteristics."
+> "Context also has the unique ability to be scoped to a specific section of the React component tree. A common mistake of context (and generally any “application” state) is to make it globally available anywhere in your application when it’s actually only needed to be available in a part of the app (like a single page). Keeping a context value scoped to the area that needs it most has improved performance and maintainability characteristics."
 
 -`useImperativeHandle` is described in the React docs as:
 
-> "useImperativeHandle customizes the instance value that is exposed to parent components when using ref. 
-used with forwardRef
-As always, imperative code using refs should be avoided in most cases. useImperativeHandle should be"
+> "useImperativeHandle customizes the instance value that is exposed to parent components when using ref. As always, imperative code using refs should be avoided in most cases. useImperativeHandle should be used with forwardRef"
 
 - Uses of this hook should be fairly infrequent, and always documented as to why it's necessary in that particular case.
 
@@ -202,7 +193,7 @@ Then:
 
 ## The Context Module pattern 
 
--This pattern is most useful when using useContext and useReducer together. If, in a situation like this, 
+- This pattern is most useful when using useContext and useReducer together. If, in a situation like this, 
 you find yourself making custom functions in the consuming component, or importing helper functions, then it may be a good idea to import those functions and the context provider from a separate module. In short, make sure you're providing everything you need to consume Context **with** that Context.
 
 ## Compound Components 
@@ -224,8 +215,8 @@ function Guitar({ children }) {
 
 When to use one or the other? 
 
--Map over children when you only have to worry about direct descendants
--Use context when you don't know how deep the tree needs to go
+- Map over children when you only have to worry about direct descendants
+- Use context when you don't know how deep the tree needs to go
 
 ## Prop Collections and Getters
 
@@ -268,7 +259,7 @@ function getTogglerProps({ props, ...onClick } = {}) {
 
 # Epic React: React Performance
 
--Using dev tools like the Coverage, Performance, and Network tabs are a good way to ensure that performance changes
+- Using dev tools like the Coverage, Performance, and Network tabs are a good way to ensure that performance changes
 you're making actually change performance for the better
 
 -When evaluating performance you REALLY want to do so in production mode to get the clearest idea of what your users would be experiencing, and to avoid premature/unnecessary optimization.
@@ -412,6 +403,14 @@ fallback component from rendering so you can utilize other UI changes or behavio
 ## Render-As-You-Fetch without Suspense
 
 - Fetch resources as early as humanly possible
+
+# Render Props
+
+- Render props is defined by the React docs as:
+
+> "The term “render prop” refers to a technique for sharing code between React components using a prop whose value is a function."
+
+- While they have been largely replaced by custom hooks, there are still some corner cases where they are useful: https://kentcdodds.com/blog/react-hooks-whats-going-to-happen-to-render-props
 
 
 

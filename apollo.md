@@ -2,15 +2,14 @@
 
 - Apollo Client is a GraphQL data-fetching layer for the front-end that also includes caching and state management.
 
-# Caching
+## Caching
 
 Per the Apollo Docs:
 
-> "Whenever Apollo Client fetches query results from your server, it automatically caches those results locally. 
-> This makes subsequent executions of the same query extremely fast."
+> "Whenever Apollo Client fetches query results from your server, it automatically caches those results locally. This makes subsequent executions of the same query extremely fast."
 
 
-# Installation
+## Installation
 
 1) Install `graphql` and `@apollo/client`
 
@@ -34,4 +33,8 @@ const client = new ApolloClient({
 - From the Apollo website:
 
 > "Apollo Server is an open-source, spec-compliant GraphQL server that's compatible with any GraphQL client, including Apollo Client. It's the best way to build a production-ready, self-documenting GraphQL API that can use data from any source."
+
+## Schema Creation
+
+1. Create a file (something like `schema.js`)
 

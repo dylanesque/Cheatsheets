@@ -147,8 +147,6 @@ TODO: Understand the difference between `{}`, `object`, and `unknown`
 
 # Mapped Types
 
-
-
 # Objects
 
 - You can create an object literal in TS using curly braces, like in JS. This can be 
@@ -189,7 +187,6 @@ export const Head = ({ title, isActive }: Props) => {}
   extension of types, use an interface instead.
 
 - Caveat to the last point: extending types IS possible using intersections
-
 
 
 - ~~To type functional components that utilize the `children` prop, use `React.FC<OtherProps>`~~

@@ -14,5 +14,17 @@
 
 -Single line comments in SQL are done with two dashes, multi-line are same as multi-line in JavaScript
 
--Operator precedence is: PEMDAS,, concatentation operators, comparison operators, (IS NULL, Like, NOT IN, etc), NOT, AND, OR
+-Operator precedence is: PEMDAS,, concatentation operators, comparison operators, (IS NULL, LIKE, NOT IN, etc), NOT, AND, OR
+
+- CRUD = CREATE, SELECT, INSERT/UPDATE, DELETE
+
+- Insertion: `INSERT INTO users VALUES(NULL, "drizzydude", "082jf48yr39d31-0d329j", "Dave", "Drizzton");`
+
+- Updating: `Update phone_book set first_name = "Mystery", last_name = "Person";`
+
+- Deleting: DELETE FROM phone_book WHERE first_name = "Jonathan" AND last_name = "Luna"
+
+- Transactions are a way to lump multiple statements together
+
+ordering: `SELECT * FROM books ORDER BY genre, title;`
 

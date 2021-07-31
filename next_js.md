@@ -97,9 +97,6 @@ export async function getStaticPaths() {
 
 # Images
 
-
-
-
 # Routing
 
 - Next routing and Links work a lot like Gatsby, but with the system of Links being more verbose
