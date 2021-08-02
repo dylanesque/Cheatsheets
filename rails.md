@@ -58,6 +58,14 @@
 
 # Models
 
+- ActiveRecord is the utility that Rails uses to interact with the database.
+
+- Migrations exist to accomodate incremental changes to the database.
+
+- The rails console is a good place to experiment with new database entities, making sure that you are getting vaild results when creating new instances of them, etc.
+
+
+
 # Views 
 
 - `application.html.erb` is a special layout file that Ruby provides

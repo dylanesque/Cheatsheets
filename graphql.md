@@ -10,6 +10,8 @@
 
 - A *Field* is an attribute of an object type.
 
+- *Resolvers* are functions that take several arguments for queries or mutations. Discussed in depth here: https://graphql.org/learn/execution/#root-fields-resolvers
+
 # SDL
 
 - The Schema Definition Language is how we describe objects in GraphQL

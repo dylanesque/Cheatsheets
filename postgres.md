@@ -2,6 +2,47 @@
 
 -Go with the 'principal of least privilege': start with no privileges, and only add new privileges as needed.
 
+# Design
+
+- If you find yourself repeating string data, you need a relationship of some kind instead
+
+- Never use the logical key as the primary key
+
+- Foreign keys should be integers
+
+- Many to many relationships are modelled with a connection table with two foreign keys
+
+# Types
+
+- CHAR is for small strings where the length is known
+
+- VARCHAR is for longer strings
+
+- Postgres has a NOW() function for dates
+
+- Marking a value as SERIAL makes it auto-increment.
+
+# Creation
+
+Modelling relationships:
+
+```sql
+CREATE TABLE make (
+    id SERIAL,
+    name VARCHAR(128) UNIQUE,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE model (
+  id SERIAL,
+  name VARCHAR(128),
+  make_id INTEGER REFERENCES make(id) ON DELETE CASCADE,
+  PRIMARY KEY(id)
+);
+```
+
+
+
 # The SELECT statement
 
 - 'Select column AS "<new-name>"' to rename/alias columns
@@ -27,4 +68,16 @@
 - Transactions are a way to lump multiple statements together
 
 ordering: `SELECT * FROM books ORDER BY genre, title;`
+
+# Joins
+
+- Inner joins: join where things match
+
+- Cross join: mash all that together
+
+# Subqueries
+
+- A Subquery is a query within a query; while they can be useful in some instances, they're often suboptimal, even when compared to two separate queries.
+
+
 

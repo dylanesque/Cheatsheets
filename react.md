@@ -10,6 +10,10 @@
 
 - On importing React: https://epicreact.dev/importing-react-through-the-ages/
 
+- The best definition of props and state, from the React Native docs:
+
+> "As a general rule, use props to configure a component when it renders. Use state to keep track of any component data that you expect to change over time."
+
 - `propTypes` provide runtime validation for React props. While you could use this, it may be better to use TypeScript instead, as it covers a lot more bases in terms of static analysis, and catches them earlier to boot.
 
 - Styling in React happens in one of two basic ways: a) Writing styles inline with the `style` prop, and b) Standard CSS applied with the `className` prop.

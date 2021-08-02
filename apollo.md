@@ -34,7 +34,20 @@ const client = new ApolloClient({
 
 > "Apollo Server is an open-source, spec-compliant GraphQL server that's compatible with any GraphQL client, including Apollo Client. It's the best way to build a production-ready, self-documenting GraphQL API that can use data from any source."
 
+- The Apollo Studio Explorer acts as the GraphiQL IDE for your Apollo Server project.
+
 ## Schema Creation
 
 1. Create a file (something like `schema.js`)
+
+## DataSource
+
+- `DataSource` is an abstract class with several implementations specific to certain data/source types like REST, Mongo, SQL, etc.
+
+- resolver functions in Apollo have a params signature very close to that of native GraphQL resolver:
+
+1. `parent` is the returned value of the resolver for that particular field's parent.
+2. `args` are all arguments provided for that field.
+3. `context` is necessary context for the query, such as authentication state, or a db connection.
+4. `info` is optional metadata.
 
