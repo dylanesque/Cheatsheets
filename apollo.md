@@ -8,24 +8,23 @@ Per the Apollo Docs:
 
 > "Whenever Apollo Client fetches query results from your server, it automatically caches those results locally. This makes subsequent executions of the same query extremely fast."
 
-
 ## Installation
 
-1) Install `graphql` and `@apollo/client`
+1. Install `graphql` and `@apollo/client`
 
-2) Create an instance of Apollo Client for the application. You'll need `Apollo Client` and `InMemoryCache` for this.
+2. Create an instance of Apollo Client for the application. You'll need `Apollo Client` and `InMemoryCache` for this.
 
 ```javascript
 const client = new ApolloClient({
- uri: 'http://localhost:4000',
- cache: new InMemoryCache(),
+  uri: "http://localhost:4000",
+  cache: new InMemoryCache(),
 });
 ```
+
 - The `uri` is the location of our GraphQL server
 - the `cache` is the InMemory Cache, which does a lot of caching behind the scenes
 
-
-3) We wrap the App component (or take an alternate strategy, as in the case of Next.js) in an `ApolloProvider`, 
+3. We wrap the App component (or take an alternate strategy, as in the case of Next.js) in an `ApolloProvider`,
    and pass the Apollo Client instance as a prop to that.
 
 # Apollo Server
@@ -50,4 +49,3 @@ const client = new ApolloClient({
 2. `args` are all arguments provided for that field.
 3. `context` is necessary context for the query, such as authentication state, or a db connection.
 4. `info` is optional metadata.
-
