@@ -12,6 +12,8 @@
 2) An object, a, can be assigned to another object, b, if a has at least the same members as b
 3) A function, a, can be assigned to another function, b, if each parameter in a has a corresponding parameter in b with a compatible type
 
+- A tuple is an array with explicit, different (or not different) types for each index of the array
+
 # Debugging
 
 - Use source maps for more effective TS debugging at runtime.

@@ -10,6 +10,19 @@
 
 - A *Field* is an attribute of an object type.
 
+- An *Alias* can be used to rename the results of a field query to something more unique:
+
+```js
+  jediHero: hero(episode: JEDI) {
+    name
+  }
+}
+```
+
+- *Fragments* are essentially variables that we can reuse when we need to user certain fields over and over again in queries.
+
+- *Directives* are logic that can alter what gets returned by a query based on the value of certain key variables.
+
 - *Resolvers* are functions that take several arguments for queries or mutations. Discussed in depth here: https://graphql.org/learn/execution/#root-fields-resolvers
 
 # SDL
@@ -27,3 +40,9 @@
 - Harder to implement rate-limiting
 
 - Caching is more complicated
+
+# ORMs
+
+- Prisma: Best for mapping existing datasources, getting up and running fast
+
+- Hasura: Shines at subscriptions/realtime use-cases

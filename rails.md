@@ -64,7 +64,9 @@
 
 - The rails console is a good place to experiment with new database entities, making sure that you are getting vaild results when creating new instances of them, etc.
 
+## Model Gotchas
 
+- ActiveRecord's uniqueness validation does not guarantee uniqueness at the database level. The workaround for this is to implement a db index for columns that require uniqueness, and require that id to b e be unique.
 
 # Views 
 
@@ -81,5 +83,23 @@
 
 
 # Controllers
+
+# Debugging
+
+- The `debug` method can be used to debug values in a Rails dev environment.
+
+- Another way to do this is using the `byebug` gem.
+
+# Deployment
+
+- Use Puma in production, at least with Heroku
+
+# Security
+
+## SSL
+
+- SSL can be enforced by setting `config.force_ssl = true` in the `config/environments/production.rb` file.
+
+- DO NOT do the above if you're using Cloudflare
 
 

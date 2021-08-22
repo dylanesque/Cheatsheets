@@ -4,6 +4,8 @@
 
 - Data types are first-class citizens in Ruby, like in JavaScript
 
+- We can print on the screen with `puts`
+
 # Primitive Data Types
 
 - String interpolation in Ruby requires the use of double quotes.
@@ -13,6 +15,8 @@
 ```
 
 - Symbols are often used as hash keys; Start them with a letter.
+
+- In number operations, combining an int and a float will return a float
 
 # Objects
 
@@ -35,6 +39,8 @@
 
 - Blocks are closures with which are often used to perform operations on a list or range of values.
 
-# Functions
+# Methods
 
-- Ruby functions have an implicit return, meaning that they return the last statement that's evaluated is a return isn't explicitly declared.
+- Ruby methods have an implicit return, meaning that they return the last statement that's evaluated is a return isn't explicitly declared.
+
+- Ruby supports multiple returns, like Golang

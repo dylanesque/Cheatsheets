@@ -1,14 +1,24 @@
-# State
+# Basics
 
-# Epic React: React Fundamentals
+- JavaScript can be used to generate HTML code via the DOM, and understanding this is the first stepping stone in understanding React and what it does. If you know how to completely generate HTML from JS using [Document API](https://developer.mozilla.org/en-US/docs/Web/API/Document) methods like `querySelectorAll()`, you're good to go here.
 
-- The first exercise talked about how JavaScript can be used to generate HTML code via the DOM, and how this is the first stepping stone in understanding React and what it does. If you know how to completely generate HTML from JS using [Document API](https://developer.mozilla.org/en-US/docs/Web/API/Document) methods like `querySelectorAll()`, you're good to go here.
+- The `React.createElement` API, the lowest-level version of React. That method takes an element type and params as an argument, and returns a React Element. It also spells out that it is React itself that creates these elements, and the ReactDOM library that renders those created elements to the DOM. The "children" prop is discussed as well, something seen frequently in Gatsby. React is using the browser API under the hood, but in a much more declarative manner. To sum it up, think of the main React library as being responsible for rendering elements via `React.createElement()`, and ReactDOM for rendering those elements to the DOM, like `rootElement.append()`
 
-- The second exercise talked about the `React.createElement` API, the lowest-level version of React. That method takes an element type and params as an argument, and returns a React Element. It also spells out that it is React itself that creates these elements, and the ReactDOM library that renders those created elements to the DOM. The "children" prop is discussed as well, something most prominently seen in Gatsby. React is using the browser API under the hood, but in a much more declarative manner. To sum it up, think of the main React library as being responsible for rendering elements via `React.createElement()`, and ReactDOM for rendering those elements to the DOM, like `rootElement.append()`
-
-- JSX is syntactic sugar on top of the basic React API that resembles HTML or XML. What it is is basically named custom components, with optional "props" which work much like HTML attributes. It's also worth noting that standard HTML attributes work in JSX, though they may sometimes need some syntactic adjustment, as in the famous case of "class" needing to be labelled as "className" in React. To expand on this, a react component is at it's most basic level a JS function that returns some markup or other renderable elements. 
+- JSX is syntactic sugar on top of the basic React API that resembles HTML or XML. What it is is basically named custom components, with optional "props" which work much like HTML attributes. It's also worth noting that standard HTML attributes work in JSX, though they may sometimes need some syntactic adjustment, as in the famous case of "class" needing to be labelled as "className" in React. To expand on this, a React component is at it's most basic level a JS function that returns some markup or other elements. 
 
 - On importing React: https://epicreact.dev/importing-react-through-the-ages/
+
+# Debugging
+
+React Dev Tools offer several ways to make debugging react easier including:
+
+- Filtering of components to make debugging of large applications faster.
+
+- A `renderedBy` list for components that lets you sift through owners of that component faster.
+
+- An `owners tree` list that shows all components that a component renders.
+
+# State
 
 - The best definition of props and state, from the React Native docs:
 
@@ -22,13 +32,18 @@
 
 - This module discusses arrays, commonly rendered in React by mapping over an array, and the importance of keys to uniquely identify each array entity.
 
-# Epic React: React Hooks
+# Core API
+
+*Coming Soon!*
+
+# React Hooks
 
 - In general, Hooks are how modern React stores and modifies state.
 
 ## useState
 
--`React.useState` is the hook you'll probably use the most, for setting and maintaining basic state. It's commonly written in the form:
+- `React.useState` is the hook you'll probably use the most, for setting and maintaining basic state. It's commonly written in the form:
+
 `const [yeet, setYeet] = React.useState('nothing');`
 
 ...and is updated by passing the requisite argument to the `setWhatever` function:
@@ -37,7 +52,7 @@
 
 - Updating via this set function versus variable assignment is important, since the set function triggers a re-render.
 
--`this.setState()` is an asynchronous method. What this means is that if duplicate calls are made in a function, only the last one will be called. Furthermore, updated data from a setState call might not be available until the next render. Per the React docs:
+- `this.setState()` is an asynchronous method. What this means is that if duplicate calls are made in a function, only the last one will be called. Furthermore, updated data from a setState call might not be available until the next render. Per the React docs:
 
 > 'React may batch multiple setState() calls into a single update for performance.'
 
@@ -54,13 +69,11 @@
 
 ## Lifting State
 
-- When it comes to the question of 'where does state live?', the way to go is to keep it as close to where it's being used as possible, which is in 
-the closest common parent when children share state.
+- When it comes to the question of 'where does state live?', the way to go is to keep it as close to where it's being used as possible, which is in the closest common parent when children share state.
 
 ## useRef
 
-- The useRef hook is how React can get a reference to a particular DOM node. We want to avoid doing this whenever possible since it's imperative as
-  opposed to declarative and not really the "React Way", but it is sometimes necessary.
+- The useRef hook is how React can get a reference to a particular DOM node. We want to avoid doing this whenever possible since it's imperative as opposed to declarative and not really the "React Way", but it is sometimes necessary.
 
 ## useEffect
 
@@ -112,7 +125,7 @@ to Kent C. Dodds:
 
 ## Other Patterns covered in this chapter
 
--The below function takes reusability and extensibility to the next level with several techniques:
+- The below function takes reusability and extensibility to the next level with several techniques:
 
 1) The key argument is a generic name for several possible arguments that could be passed in
 2) There are default values for serialize and deserialize, which will work for most things we pass into or retrieve from localStorage,
@@ -151,7 +164,30 @@ function useLocalStorageState(
 }
 ```
 
-# Epic React: Advanced React Hooks
+## State Recipes
+
+- Changing parent state from a child component, by https://stackoverflow.com/users/9418800/moshfiqrony, from https://stackoverflow.com/questions/35537229/how-can-i-update-the-parents-state-in-react:
+
+```js
+import React, {useState} from 'react';
+
+const ParentComponent = () => {
+  const[state, setState]=useState('');
+  
+  return(
+    <ChildConmponent stateChanger={setState} />
+  )
+}
+
+
+const ChildConmponent = ({stateChanger, ...rest}) => {
+  return(
+    <button onClick={() => stateChanger('New data')}></button>
+  )
+}
+```
+
+# Advanced React Hooks
 
 - The `useReducer` hook's closest equivalent is the Redux framework: if you have state management needs that are far too complicated for useState to handle, you want to reach for this. useReducer contains a lot of the best parts of Redux, but is not entirely a drop-in replacement for it.
 
@@ -193,7 +229,7 @@ Then:
 - Updates are triggered by a parent re-render, or changes to state or context.
 
 
-# Epic React: Advanced React Patterns
+# Advanced React Patterns
 
 ## The Context Module pattern 
 
@@ -206,13 +242,10 @@ you find yourself making custom functions in the consuming component, or importi
 
 ```javascript
 function Guitar({ children }) {
-  const [position, setPosition] = React.useState('neck');
-  const toggle = () => setposition(!on)
+  const [pickupPosition, setPickupPosition] = React.useState('neck');
+  const toggle = () => setPickupPosition(!on)
 }
 ```
-
-- A question I have: how to handle state more complicated than a boolean switch? 
-- There are two basic ways to accomplish this:
 
 1) Mapping over the children of a parent and cloning the state and props into new children elements
 2) Using a context provider and sharing state that way
@@ -292,18 +325,18 @@ for those functions change.
 
 ## React.memo for reducing re-renders
 
--The lifecycle of a React app:
+- The lifecycle of a React app:
 
-→  render → reconciliation → commit
-         ↖                   ↙
-              state change
+render → reconciliation → commit
+      ↖                   ↙
+          state change
 
 -Things that cause the re-rendering of a React component:
 
--It's props change
--It's internal state changes
--It is consuming context values which have changed
--It's parent re-renders
+- It's props change
+- It's internal state changes
+- It is consuming context values which have changed
+- It's parent re-renders
 
 -`React.memo` (for function components) and/or `React.PureComponent` (for legacy class components) prevent a component
 from re-rendering solely because it's parent re-rendered.
@@ -348,18 +381,15 @@ increment.dispatchEvent(incrementClickEvent);
 
 ## React Testing Library 
 
--Instead of hard-coding text elements, consider using snapshots to make your tests less brittle in the face of unexpected changes
+- Instead of hard-coding text elements, consider using snapshots to make your tests less brittle in the face of unexpected changes
 
 ## Avoid Implementation Details
 
--Kent says:
+- Kent says:
 
-"One of those is more clear than the other, but that's irrelevant to the point:
-The implementation of your abstractions does not matter to the users of your
-abstraction and if you want to have confidence that it continues to work through
-refactors then **neither should your tests.**"
+> "One of those is more clear than the other, but that's irrelevant to the point: The implementation of your abstractions does not matter to the users of your abstraction and if you want to have confidence that it continues to work through refactors then **neither should your tests.**"
 
--Using utilities like the 'screen' portion of react-testing-library can help make your tests short and more resilient 
+- Using utilities like the 'screen' portion of react-testing-library can help make your tests short and more resilient 
 to codebase modifications.
 
 ## Integration Testing

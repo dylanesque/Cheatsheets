@@ -2,7 +2,7 @@
 
 - Vue is an SPA framework like React or Angular: it updates only the DOM elements necessary when prompted.
   
-- Vue is added to a webpage via an instance:
+- Vue is added to a webpage via an *instance*:
 
 ```javascript
 var vm = new Vue({
@@ -94,9 +94,13 @@ Vue.directive('nameofthedirective', {
 
 - While `v-if` removes an element from the DOM, `v-show` merely toggles it's visibility. This directive doesn't work with the template wrapper.
 
-- Iterating is done with the `v-for` directive. Like in Angular, mutiple "structural" directives don't play well together.
+- Iterating is done with the `v-for` directive. Like in Angular, multiple "structural" directives don't play well together.
 
 - To deal with conditionally rendered loops, first filter the list using the 'computed' property before passing it down to the template.
+
+## Directive Reference
+
+
 
 ## Reactive Paradigm/DOM Updating
 
@@ -117,6 +121,10 @@ Vue.directive('nameofthedirective', {
 
 
 # Components
+
+# Filters
+
+- Filters are like pipes in Angular, and transform data inside the template.
 
 
 

@@ -101,6 +101,16 @@ for i := 0; i++ {
 
 - The order of execution between concurrent tasks is not known.
 
+- goroutines are functions that are to be executed asynchronously.
+
+- Channels are designed to synchronize goroutines.
+
+## WaitGroups 
+
+- WaitGroups wait for collections of goroutines to finish.
+
+- The `Add` method 
+
 # Data Structures
 
 - Arrays are statically sized in Go, and not used as often as slices
@@ -109,6 +119,7 @@ for i := 0; i++ {
 
 ### Maps
 
+- The hash table implementation in Golang
 - Reference type
 - Generally used for collections of related properties
 - All keys (and separately, all values), must be of the same type
@@ -132,4 +143,18 @@ for i := 0; i++ {
 2. Reusables are helpers or utilities.
 
 ## Templates
+
+# Web Development using Go
+
+## Templates
+
+- Templates let us create web pages with Go
+
+- At a high level, we parse files (using `template.ParseFiles` or `template.ParseGlob`), and then execute them into a template.
+
+- Functions can be mapped over using the `FuncMap` method from the template library...
+
+- ...which can be passed into the `Funcs` method.
+
+
 

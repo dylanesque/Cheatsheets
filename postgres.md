@@ -79,5 +79,11 @@ ordering: `SELECT * FROM books ORDER BY genre, title;`
 
 - A Subquery is a query within a query; while they can be useful in some instances, they're often suboptimal, even when compared to two separate queries.
 
+# Indexes
+
+## Inverse Index
+
+- When the index is given a string instead of a logical key, and it returns ALL rows that match that query, instead of just one.
+
 
 

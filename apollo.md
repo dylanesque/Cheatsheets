@@ -41,6 +41,8 @@ const client = new ApolloClient({
 
 ## DataSource
 
+// TODO: **Resolvers in Apollo are a shaky concept for me, especially what precisely goes in the parent**
+
 - `DataSource` is an abstract class with several implementations specific to certain data/source types like REST, Mongo, SQL, etc.
 
 - resolver functions in Apollo have a params signature very close to that of native GraphQL resolver:
@@ -49,3 +51,13 @@ const client = new ApolloClient({
 2. `args` are all arguments provided for that field.
 3. `context` is necessary context for the query, such as authentication state, or a db connection.
 4. `info` is optional metadata.
+
+# Apollo Federation
+
+- Apollo Federation is a way to split your endpoint into multiple microservice-style resources.
+
+CREATE TABLE unesco
+ (name TEXT, description TEXT, justification TEXT, year INTEGER,
+    longitude FLOAT, latitude FLOAT, area_hectares FLOAT,
+    category_id INTEGER, state_id INTEGER,
+    region_id INTEGER, iso_id INTEGER);

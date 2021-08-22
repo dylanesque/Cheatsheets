@@ -131,6 +131,8 @@ To normalize application height when trying to fill the viewport:
 
 - To add colored dividers to a grid layout, you need to remove the gap and add padding, and then carefully add in borders.
 
+- Be careful with `fr`, as it can lead to overflow issues (which can be circumvented by using `minmax` or similar techniques to set a minimum width).
+
 
 
 # Hiding Content
